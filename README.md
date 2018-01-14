@@ -14,8 +14,8 @@ A lack of awareness of privilege?? [citation needed].
 
 1. Clone Repo
 2. `npm install`
-3. `npm firebase`
-4. `npm router-react-dom`
+3. `npm install firebase`
+4. `npm install router-react-dom`
 5. `npm start`
 6. visit http://localhost:3000/
 
