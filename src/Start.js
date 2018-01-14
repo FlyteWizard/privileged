@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import fire from './fire';
 import { Redirect } from 'react-router-dom';
-import AnimatedNumber from 'react-animated-number';
 
-var usersinroom;
+var usersinroom = 0;
 
 class Start extends Component {
    constructor(props) {
