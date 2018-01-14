@@ -38,9 +38,7 @@ class Landing extends Component {
                 }}>
                     <h1 className="App-title">Privilege Walk</h1>
                     <p className="App-intro">
-                      This activity forces participants to confront the ways in which society privileges some individuals over others.
-                      Privilege is often invisible, yet it has the potential to shape every aspect our everyday lives.
-                      As our lives become increasingly intertwined with technology, there is a growing need to raise awareness about these issues in the tech community.
+                      Privileged.tech is a web application that enables groups of individuals to conduct a <a className="pinklink" href="https://edge.psu.edu/workshops/mc/power/privilegewalk.shtml">‘privilege walk’</a> from their web-connected devices in real time. The questions in the walk aim to expose the privileges present in the tech community, and provoke participants to reflect on their position in the walk.
                     </p>
 
 
@@ -48,9 +46,10 @@ class Landing extends Component {
                     
                 </div>)}
             </Transition>
-        
+
         );
     }
 }
+
 
 export default Landing;

@@ -281,7 +281,7 @@ body {
     list-style-type: square;
 }
 
-.Recap a {
+.Recap a, .pinklink {
     font-weight: 500;
     color:#E77171;
 }

@@ -8,11 +8,11 @@ The Privilege of Not Understanding Privilege.
 
 ## Proposal
 
-Privileged.tech is A web application that enables groups of individuals to conduct a [‘privilege walk’](https://edge.psu.edu/workshops/mc/power/privilegewalk.shtml). The questions in the walk aim to expose the privileges present in the tech community, and provoke participants to reflect on their position in the walk. Privileged.tech encourages the more privileged participants to not only acknowledge, but to also engage those privileges and work toward improving the atmosphere of the industry. The project also provides relevant stories and promotes other projects with the same vision.
+Privileged.tech is a web application that enables groups of individuals to conduct a [‘privilege walk’](https://edge.psu.edu/workshops/mc/power/privilegewalk.shtml) from their web-connected devices in real time along with the other members of the group. The questions in the walk aim to expose the privileges present in the tech community, and provoke participants to reflect on their position in the walk. Privileged.tech encourages the more privileged participants to not only acknowledge, but to also engage those privileges and work toward improving the atmosphere of the industry. The project also provides relevant stories and promotes other projects with the same vision.
 
 ## Use Cases
 
-We imagine the project being used in university lectures or workplace teams as an introduction to understanding privilege.
+We imagine the project being used in university lectures or workplace teams as an introduction to understanding privilege. Since the app connects the group's responses in real-time, it facilitates a digital version of a real privilege walk.
 
 ## Install
 
