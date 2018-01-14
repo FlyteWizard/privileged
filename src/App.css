@@ -234,3 +234,36 @@ body {
     box-shadow: 0.2em 0.2em 1.5em #DD8585;
 
 }
+
+
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (max-width: 767px) {
+    .App {padding: 0 2.5em;}
+
+    .Questions {
+        padding: 0;
+        height: auto;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        margin: 0;
+        position: inherit;
+    }
+    .answer { margin: 1.5em 0 !important;}
+
+    .App-title {
+        padding: 0em 0 0.8em 0;
+    }
+    .App-intro {
+        max-width: auto;
+        font-size: 0.85em;
+    }
+    .start-card {
+        padding: 1em 2em;
+    }
+    .question { font-size: 1.5em;}
+
+
+}
