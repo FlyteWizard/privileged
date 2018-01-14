@@ -9,23 +9,38 @@ var baseRef = fire.database();
 
 
 const data = {
-  
+
   labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
   datasets: [
     {
       label: 'View data',
-      backgroundColor: 'rgba(255,99,132,0.2)',
-      borderColor: 'rgba(255,99,132,1)',
-      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-      hoverBorderColor: 'rgba(255,99,132,1)',
+      backgroundColor: [
+        "#82A19A",
+        "#B5CDBF ",
+        "#E77171 ",
+        "#F39998 ",
+        "#EAADAC ",
+        "#C8D4A4 ",
+        "#F6ECB7",
+        "#82A19A",
+        "#B5CDBF ",
+        "#E77171 ",
+        "#F39998 ",
+        "#EAADAC ",
+        "#C8D4A4 ",
+        "#F6ECB7" ],
+      borderColor: 'none',
+      hoverBackgroundColor: '',
+      hoverBorderColor: '#fff',
       data: [],
+      hover: {mode: null},
       borderWidth: 1,
     }
-  ] 
-  
+  ]
+
 };
 
-    
+
 for (var i = 0; i < 12; i++) {
     var currRef = baseRef.ref("questionsums/q" + i);
     currRef.on("value", function(snapshot) {
@@ -37,18 +52,21 @@ for (var i = 0; i < 12; i++) {
 
 
 class End extends Component {
-    
+
     render() {
         return (
-            <div>
-                <p>Overview</p>
-                
+            <div className="Overview">
+                <h1 className="overview-title">Overview</h1>
+                <p className="App-intro">
+                  This activity forces participants to confront the ways in which society privileges some individuals over others.
+                </p>
+
                 <HorizontalBar data={data} />
             </div>
         );
-        
+
     }
-    
-} 
+
+}
 
 export default End;
