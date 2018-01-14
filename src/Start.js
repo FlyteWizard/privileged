@@ -36,14 +36,16 @@ class Start extends Component {
     render() {
 
     return (
-        <div className="App">
+        <div className="Start">
             <div className="start-card">
                 <h3 className="card-title">Waiting for others</h3>
-                <p className="App-intro">Need 10 participants</p>
+                <p className="card-intro">Need 10 participants</p>
 
-                <form onSubmit={this.addUser.bind(this)}>
-                    <input type="text" placeholder="wtf" ref={ el => this.inputEl = el }/>
-                    <input type="submit" value="Start"/>
+                <h1 className="num-participants"> X </h1>
+
+                <form className="start-form" onSubmit={this.addUser.bind(this)}>
+                    <input className="start-name" type="text" placeholder="Your display name" ref={ el => this.inputEl = el }/>
+                    <input className ="start-button" type="submit" value="Start"/>
                 </form>
             </div>
 

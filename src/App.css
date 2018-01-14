@@ -29,7 +29,7 @@ body {
 .App-title {
   font-size: 2.1em;
   padding: 4em 0 0.8em 0;
-  font-weight: 600!important;
+  font-weight: 600;
 }
 .App-intro {
   max-width: 45em;
@@ -42,12 +42,91 @@ body {
 .App-button {
   background-color: #FFFFFF;
   color: black;
+  font-weight: 600;
   padding: 1em 3em;
   box-shadow: 0.2em 0.2em 1.5em #4A90E2;
   transition: box-shadow 0.2s ease-out;
 }
 .App-button:hover {
   transition: box-shadow 0.2s ease-in;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0.4em 0.4em 1.5em #4A90E2;
+}
+
+
+
+
+/* ---- Start page styles */
+
+.start-card {
+    background-color: #fff;
+    padding: 5em;
+    max-width: 450px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.card-title {
+    color: #000;
+    font-weight: 600 !important;
+    margin-bottom: 0.3em;
+}
+
+.card-intro {
+    color: #959595;
+    font-weight: 300 !important;
+    line-height: 1;
+}
+
+.num-participants {
+    font-size: 3em;
+    font-weight: 600 ;
+    color: #000;
+
+
+}
+
+.start-form {
+    padding: 3em 0;
+}
+.start-form input {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 3em;
+    width: 80%;
+}
+
+.start-name {
+}
+
+.start-name[type=text] {
+    border:none;
+    padding-bottom: 5px;
+    width: 80%;
+    border-bottom: 1px solid #000;
+    color: #000;
+}
+
+.start-name[type=text]:focus {
+    /* border-color: red; */
+}
+
+.start-name[type=submit] {
+    background: #fff;
+    cursor:pointer;
+}
+
+.start-button {
+  background-color: #FFFFFF;
+  color: black;
+  padding: 1em 3em;
+  border: none;
+  box-shadow: 0.2em 0.2em 1.5em #4A90E2;
+}
+.start-button:hover {
   text-decoration: none;
   color: black;
   box-shadow: 0.4em 0.4em 1.5em #4A90E2;
