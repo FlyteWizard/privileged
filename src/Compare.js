@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import fire from './fire';
 import { Line } from 'react-chartjs-2';
 
-var totalUsers = 10.0;
 var counter = 1;
 
 const data = {
@@ -13,8 +12,7 @@ const data = {
       label: 'View data',
       backgroundColor: "#222",
       borderColor: '#555',
-        borderWidth: 2,
-        pointBackgroundColor: [
+      pointBackgroundColor: [
         "#82A19A",
         "#B5CDBF ",
         "#E77171 ",
@@ -29,7 +27,7 @@ const data = {
         "#EAADAC ",
         "#C8D4A4 ",
         "#F6ECB7" ],
-        pointRadius: 10,
+      pointRadius: 10,
       hoverBackgroundColor: '',
       hoverBorderColor: '#fff',
       data: [],
@@ -53,7 +51,7 @@ query.once("value")
         var username = childSnapshot.val().username;
         console.log(username + mysum);
 
-        if (username == localStorage.getItem("username")) {
+        if (username === localStorage.getItem("username")) {
             data.labels.push("you");
         } else {
             data.labels.push(counter);
