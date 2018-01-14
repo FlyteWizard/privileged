@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import fire from './fire';
+import { Link } from 'react-router-dom';
 import { HorizontalBar } from 'react-chartjs-2';
 
 var totalUsers = 10.0;
@@ -57,6 +58,7 @@ class End extends Component {
                 <p className="App-intro">
                   This activity forces participants to confront the ways in which society privileges some individuals over others.
                 </p>
+                <Link to='/compare' className="App-button">Compare</Link>
 
                 <HorizontalBar data={data} />
             </div>
