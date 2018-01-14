@@ -55,7 +55,7 @@ class End extends Component {
         return (
             <div className="Overview">
                 <div className="overview-text">
-                    <div class="overview-inline">
+                    <div className="overview-inline">
                         <h1 className="overview-title">Overview</h1>
                         <p className="App-intro">
                           This activity forces participants to confront the ways in which society privileges some individuals over others.
