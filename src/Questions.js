@@ -71,6 +71,8 @@ class Questions extends Component {
                 {fireRedirect && (
                     <Redirect to={from || '/end'}/>
                 )}
+                
+                
             </div>
             
             
