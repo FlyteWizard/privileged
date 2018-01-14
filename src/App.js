@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import p from './p.png';
-import './App.css';
+import p from './img/p.png';
+import './css/App.css';
 import { Switch, Route, Link } from 'react-router-dom';
 
 import Start from './Start';
