@@ -18,7 +18,21 @@ class Start extends Component {
         /* Create reference to users in Firebase Database */
         var usersRef = fire.database().ref("users");
         var username = "";
+        fire.database().ref("usersinroom/placeholder").set({donotdelete: "donotdelete"});
 
+    }
+    
+    componentDidMount() {
+        this.interval = setInterval(() => this.update(), 3000);
+    }
+    
+    update() {
+        const {updates} = this.state;
+
+        this.setState({
+            smallValue: usersinroom
+        });
+    
     }
 
     submitForm = (e) => {
@@ -45,6 +59,7 @@ class Start extends Component {
       var presenceRef = fire.database().ref("usersinroom/" + localStorage.getItem("username"));
       if (localStorage.getItem("username") != "undefined") {
           var currentUser = presenceRef.push(localStorage.getItem("username"));
+          fire.database().ref("usersinroom/placeholder").remove();
       }
 
       presenceRef.on("value", function(snap) {
@@ -68,7 +83,8 @@ class Start extends Component {
       */
 
       const { from } = this.props.location.state || '/'
-      const { fireRedirect } = this.state
+      const { fireRedirect, smallValue } = this.state
+      
 
     return (
 
@@ -78,18 +94,21 @@ class Start extends Component {
                 <p className="card-intro">Need 10 participants</p>
 
 
-                <AnimatedNumber component="text" value={usersinroom}
-                    style={{
-                    transition: '0.8s ease-out',
-                    fontSize: 48,
-                    transitionProperty:
-                        'background-color, color, opacity'
-                    }}
-                    frameStyle={perc => (
-                        perc === 100 ? {} : {backgroundColor: '#ffeb3b'}
-                    )}
-                    duration={300}
-                    />
+                <AnimatedNumber
+                        style={{
+                            transition: '0.8s ease-out',
+                            transitionProperty:
+                                'background-color, color'
+                        }}
+                        frameStyle={perc => (
+                            perc === 100 ? {} : {backgroundColor: '#ffeb3b'}
+                        )}
+                        stepPrecision={0}
+                        value={smallValue}
+                        formatValue={n => 'Animated numbers are ${n} ' +
+                            'times more awesome than regular ones'}/>
+                    
+                    
                 <h1 className="num-participants"> {usersinroom} </h1>
 
 
