@@ -76,7 +76,9 @@ class Compare extends Component {
                     <div className="overview-inline">
                         <h1 className="overview-title">Compare</h1>
                         <p className="App-intro">
-                            Where you stand compared to other participants
+                            Where do you stand?
+                            The higher on the screen you are, the more privileges you have been afforded in this specific context. 
+                            Take some time to consider those ahead of you, as well as those behind you.
                         </p>
                     </div>
                     <div className ="overview-inline">

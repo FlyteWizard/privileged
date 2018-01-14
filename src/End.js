@@ -83,7 +83,8 @@ class End extends Component {
                         <div class="overview-inline">
                             <h1 className="overview-title">Overview</h1>
                             <p className="App-intro">
-                              This activity forces participants to confront the ways in which society privileges some individuals over others.
+                              Not all privileges are made equal. Some are more common than others, especially among members of the tech community.
+                              The graph below displays the ratio of participants who benefited from each of the privileges presented today.
                             </p>
                         </div>
                         
