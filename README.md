@@ -1,6 +1,9 @@
+
 # <img src="./product/p-colour.png" width="50"> Privileged
 
 This app was made during nwHacks 2018.
+
+![Landing Page](./product/privileged-layout.png)
 
 ## Social Issue
 
@@ -61,6 +64,4 @@ The demo app can be found here: [Privileged](http://www.privileged.tech)
 
 ![Questions](./product/questions.png)
 
-#### Privileged Layout
 
-![Landing Page](./product/privileged-layout.png)
