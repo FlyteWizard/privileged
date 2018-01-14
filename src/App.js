@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import privileged from './privileged.png';
 import './App.css';
+import { Switch, Route, Link } from 'react-router-dom';
+import Start from './Start';
+
 
 class App extends Component {
   render() {
@@ -14,7 +17,14 @@ class App extends Component {
         <p className="App-intro">
           This activity forces participants to confront the ways in which society privileges some individuals over others.
         </p>
-        <a className="App-button" href="url">Start my walk</a>
+        
+        
+        <Switch>
+            <Route exact path ='/start' component={Start}/>
+        </Switch>
+        
+        <Link to='/start'>Start my walk</Link>
+        // <a className="App-button" href="url">Start my walk</a>
       </div>
     );
   }
