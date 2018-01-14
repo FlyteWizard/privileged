@@ -11,7 +11,7 @@ const data = {
   labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
   datasets: [
     {
-      label: 'View data',
+      label: View Data,
       backgroundColor: [
         "#82A19A",
         "#B5CDBF ",
@@ -28,10 +28,9 @@ const data = {
         "#C8D4A4 ",
         "#F6ECB7" ],
       borderColor: 'none',
-      hoverBackgroundColor: '',
-      hoverBorderColor: '#fff',
+      hoverBackgroundColor: '#fff',
+      hoverBorderColor: 'none',
       data: [],
-      hover: {mode: null},
       borderWidth: 1,
     }
   ]
