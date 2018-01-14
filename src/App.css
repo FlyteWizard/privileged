@@ -24,12 +24,18 @@ body {
 }
 .App-nav {
   margin-left: auto;
-  color: #d4d4d4;
+  color: #fff;
+}
+.Link:hover {
+    text-decoration: none;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 3px;
+
 }
 .Link:hover,
 .Link:active,
 .Link:focus {
-  color: #d4d4d4;
+  color: #fff;
 }
 
 .App-title {
@@ -40,7 +46,7 @@ body {
 
 .App-intro {
   max-width: 45em;
-  color: #d4d4d4;
+  color: #fff;
   font-size: 1em;
   padding: 0 0 3em 0;
   font-weight: 300;
@@ -175,6 +181,7 @@ body {
 }
 
 .question {
+    min-height: 100px;
     font-size: 2.25em;
     font-weight: 600;
     letter-spacing: 0.5px;
