@@ -70,19 +70,6 @@ class Start extends Component {
                 <h3 className="card-title">Waiting for others</h3>
                 <p className="card-intro">Need 10 participants</p>
 
-
-                <AnimatedNumber component="text" value={usersinroom}
-                    style={{
-                    transition: '0.8s ease-out',
-                    fontSize: 48,
-                    transitionProperty:
-                        'background-color, color, opacity'
-                    }}
-                    frameStyle={perc => (
-                        perc === 100 ? {} : {backgroundColor: '#ffeb3b'}
-                    )}
-                    duration={300}
-                    />
                 <h1 className="num-participants"> {usersinroom} </h1>
 
 
