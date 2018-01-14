@@ -15,7 +15,7 @@ A lack of awareness of privilege?? [citation needed].
 1. Clone Repo
 2. `npm install`
 3. `npm install firebase`
-4. `npm install router-react-dom`
+4. `npm install react-router-dom`
 5. `npm start`
 6. visit http://localhost:3000/
 
@@ -26,10 +26,10 @@ A lack of awareness of privilege?? [citation needed].
 
 ### Contributors
 
-* Amy
-* Dominique
-* Macguire
-* Sophia
+* [Amy Hanvoravongchai](https://github.com/amyhanv)
+* [Dominique Charlebois](https://github.com/FlyteWizard)
+* [Macguire Rintoul](https://github.com/mrintoul)
+* [Sophia Chan](https://github.com/schan27)
 
 ### Links
 
