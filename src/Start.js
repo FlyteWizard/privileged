@@ -3,7 +3,7 @@ import fire from './fire';
 import { Redirect } from 'react-router-dom';
 import AnimatedNumber from 'react-animated-number';
 
-var usersinroom;
+var usersinroom = 0;
 
 class Start extends Component {
    constructor(props) {
@@ -63,7 +63,6 @@ class Start extends Component {
       }
 
       presenceRef.on("value", function(snap) {
-          console.log(snap.val());
           presenceRef.onDisconnect().remove();
       });
       listRef.on("value", function(snap) {
@@ -107,8 +106,7 @@ class Start extends Component {
                         value={smallValue}
                         formatValue={n => 'Animated numbers are ${n} ' +
                             'times more awesome than regular ones'}/>
-                    
-                    
+                 
                 <h1 className="num-participants"> {usersinroom} </h1>
 
 
