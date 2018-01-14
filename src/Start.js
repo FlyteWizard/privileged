@@ -23,7 +23,6 @@ class Start extends Component {
         e.preventDefault()
         this.setState({ fireRedirect: true })
     }
-    
       
     submitForm = (e) => {
         e.preventDefault(); // <- prevent form submit from reloading the page
@@ -66,7 +65,7 @@ class Start extends Component {
                 <input type="text" ref={ el => this.inputEl = el }/>
                 <input type="submit" value="Start"/>
             </form>
-            
+
             {fireRedirect && (
                 <Redirect to={from || '/questions'}/>
             )}

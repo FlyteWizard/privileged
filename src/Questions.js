@@ -20,8 +20,14 @@ class Questions extends Component {
         return (
             
             <div className="App">
-                 <button onClick={() => this.answerQuestion(1, "yes")}>yes</button>
-                 <button onClick={() => this.answerQuestion(1, "no")}>no</button>
+                 <div>
+                {[...Array(12)].map((x, i) =>
+                 <div>
+                    <button onClick={() => this.answerQuestion(i, "yes")}>yes</button>
+                    <button onClick={() => this.answerQuestion(i, "no")}>no</button>
+                </div>
+                )}
+            </div>
             </div>
         
         
