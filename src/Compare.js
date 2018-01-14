@@ -54,7 +54,7 @@ query.once("value")
         console.log(username + mysum);
         
         if (username == localStorage.getItem("username")) {
-            data.labels.push(username);
+            data.labels.push("you");
         } else {
             data.labels.push(counter);
             counter++;
