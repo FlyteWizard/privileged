@@ -48,18 +48,18 @@ var query = fire.database().ref("users");
 query.once("value")
   .then(function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
-        
+
       var mysum = childSnapshot.val().sum;
         var username = childSnapshot.val().username;
         console.log(username + mysum);
-        
+
         if (username == localStorage.getItem("username")) {
-            data.labels.push(username);
+            data.labels.push("you");
         } else {
             data.labels.push(counter);
             counter++;
         }
-        
+
         data.datasets[0].data.push(mysum);
   });
 });
@@ -70,12 +70,12 @@ console.log("index of mine: " + indexofmybar);
 class Compare extends Component {
 
     render() {
-       
+
         return (
             <div className="Compare">
                 <h1 className="overview-title">Compare</h1>
                 <p className="App-intro">
-                  Text.
+                    Lorem Ipsum swag magda le toures dope hate.
                 </p>
 
                 <Line data={data} />

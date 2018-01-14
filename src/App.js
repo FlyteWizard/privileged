@@ -8,6 +8,7 @@ import Landing from './Landing';
 import Questions from './Questions';
 import End from './End';
 import Compare from './Compare';
+import Recap from './Recap';
 
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
           <Route exact path='/questions' component={Questions}/>
           <Route exact path='/overview' component={End}/>
           <Route exact path='/compare' component={Compare}/>
+            <Route exact path='/recap' component={Recap}/>
         </Switch>
 
       </div>
