@@ -41,3 +41,8 @@ body {
   padding: 1em 3em;
   box-shadow: 0.2em 0.2em 1.5em #ABCBF0;
 }
+.App-button:hover {
+  text-decoration: none;
+  color: black;
+  box-shadow: 0.4em 0.4em 1.5em #ABCBF0;
+}
