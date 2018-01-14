@@ -25,6 +25,11 @@ body {
   margin-left: auto;
   color: #d4d4d4;
 }
+.Link:hover,
+.Link:active,
+.Link:focus {
+  color: #d4d4d4;
+}
 
 .App-title {
   font-size: 2.1em;
