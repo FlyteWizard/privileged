@@ -1,17 +1,22 @@
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700');
 
 body {
   text-align: left;
   background-color: #000000;
   color: #FFFFFF;
   font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.0625em;
 }
 
 .App {
   padding: 0 6em;
 }
 
+.App-header {
+  padding: 6em 0;
+  display: flex;
+}
 .App-logo {
   height: 2em;
 }
@@ -20,18 +25,19 @@ body {
   color: #d4d4d4;
 }
 
-.App-header {
-  height: 150px;
-  padding: 20px;
-  color: white;
-  display: flex;
-}
-
 .App-title {
-  font-size: 1.5em;
+  font-size: 2.1em;
+  padding: 4em 0 0.8em 0;
 }
-
 .App-intro {
+  max-width: 45em;
   color: #d4d4d4;
-  font-size: large;
+  font-size: 1em;
+  padding: 0 0 3em 0;
+}
+.App-button {
+  background-color: #FFFFFF;
+  color: black;
+  padding: 1em 3em;
+  box-shadow: 0.2em 0.2em 1.5em #ABCBF0;
 }

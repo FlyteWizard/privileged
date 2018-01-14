@@ -10,10 +10,11 @@ class App extends Component {
           <img src={privileged} className="App-logo" alt="logo" />
           <p className="App-nav">About</p>
         </header>
-        <h1>Privilege Walk</h1>
+        <h1 className="App-title">Privilege Walk</h1>
         <p className="App-intro">
           This activity forces participants to confront the ways in which society privileges some individuals over others.
         </p>
+        <a className="App-button" href="url">Start my walk</a>
       </div>
     );
   }
