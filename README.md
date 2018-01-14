@@ -2,13 +2,17 @@
 
 This app was made during nwHacks 2018.
 
-## Proposal
-
-A web application for conducting a ‘privilege walk’. The questions are tailored towards the tech community in North America.
-
 ## Social Issue
 
 The Privilege of Not Understanding Privilege.
+
+## Proposal
+
+Privileged.tech is A web application that enables groups of individuals to conduct a [‘privilege walk’](https://edge.psu.edu/workshops/mc/power/privilegewalk.shtml). The questions in the walk aim to expose the privileges present in the tech community, and provoke participants to reflect on their position in the walk. Privileged.tech encourages the more privileged participants to not only acknowledge, but to also engage those privileges and work toward improving the atmosphere of the industry. The project also provides relevant stories and promotes other projects with the same vision.
+
+## Use Cases
+
+We imagine the project being used in university lectures or workplace teams as an introduction to understanding privilege.
 
 ## Install
 
