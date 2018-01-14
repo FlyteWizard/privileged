@@ -42,7 +42,6 @@ class Start extends Component {
       }
 
       presenceRef.on("value", function(snap) {
-          console.log(snap.val()); /* This returns null */ 
           presenceRef.onDisconnect().remove();
       });
       listRef.on("value", function(snap) {
