@@ -1,11 +1,12 @@
+
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600');
 
 body {
   text-align: left;
   background-color: #000000;
   color: #FFFFFF;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   letter-spacing: 0.0625em;
 }
 
@@ -28,6 +29,7 @@ body {
 .App-title {
   font-size: 2.1em;
   padding: 4em 0 0.8em 0;
+  font-weight: 600!important;
 }
 .App-intro {
   max-width: 45em;
@@ -35,14 +37,17 @@ body {
   font-size: 1em;
   padding: 0 0 3em 0;
   font-weight: 300;
+  line-height: 1.8;
 }
 .App-button {
   background-color: #FFFFFF;
   color: black;
   padding: 1em 3em;
   box-shadow: 0.2em 0.2em 1.5em #4A90E2;
+  transition: box-shadow 0.2s ease-out;
 }
 .App-button:hover {
+  transition: box-shadow 0.2s ease-in;
   text-decoration: none;
   color: black;
   box-shadow: 0.4em 0.4em 1.5em #4A90E2;
