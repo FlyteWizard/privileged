@@ -20,8 +20,9 @@ class Landing extends Component {
             <h1 className="App-title">Privilege Walk</h1>
             <p className="App-intro">
               This activity forces participants to confront the ways in which society privileges some individuals over others.
-              Privilege is often invisible, yet they can have significant influences on our everyday lives.
-              </p>
+              Privilege is often invisible, yet it can have a significant influence on our everyday lives.
+            </p>
+
 
             <Link to='/start' className="App-button">Start my walk</Link>
             

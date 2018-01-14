@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import fire from './fire';
+import { Link } from 'react-router-dom';
 import { HorizontalBar } from 'react-chartjs-2';
 
-
-var questionSum = 0;
 var totalUsers = 10.0;
 var baseRef = fire.database();
 
@@ -13,7 +12,7 @@ const data = {
   labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
   datasets: [
     {
-      label: 'View data',
+      label: "View Data",
       backgroundColor: [
         "#82A19A",
         "#B5CDBF ",
@@ -30,10 +29,9 @@ const data = {
         "#C8D4A4 ",
         "#F6ECB7" ],
       borderColor: 'none',
-      hoverBackgroundColor: '',
-      hoverBorderColor: '#fff',
+      hoverBackgroundColor: '#fff',
+      hoverBorderColor: 'none',
       data: [],
-      hover: {mode: null},
       borderWidth: 1,
     }
   ]
@@ -60,6 +58,7 @@ class End extends Component {
                 <p className="App-intro">
                   This activity forces participants to confront the ways in which society privileges some individuals over others.
                 </p>
+                <Link to='/compare' className="App-button">Compare</Link>
 
                 <HorizontalBar data={data} />
             </div>

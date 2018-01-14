@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import p from './p.png';
-import './App.css';
+import p from './img/p.png';
+import './css/App.css';
 import { Switch, Route, Link } from 'react-router-dom';
 
 import Start from './Start';
 import Landing from './Landing';
 import Questions from './Questions';
 import End from './End';
+import Compare from './Compare';
 
 
 class App extends Component {
@@ -24,7 +25,7 @@ class App extends Component {
           <Route exact path='/start' component={Start}/>
           <Route exact path='/questions' component={Questions}/>
           <Route exact path='/overview' component={End}/>
-          
+          <Route exact path='/compare' component={Compare}/>
         </Switch>
 
       </div>

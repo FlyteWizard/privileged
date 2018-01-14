@@ -245,6 +245,9 @@ body {
   font-weight: 600;
 }
 
+.Overview {
+    margin-bottom: 5em;
+}
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) and (max-width: 767px) {
