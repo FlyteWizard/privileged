@@ -62,7 +62,7 @@ class Questions extends Component {
 
             <div className="Questions">
                 <div className="questions-container">
-                    {question && <h1 class="question">{question}</h1>}
+                    {question && <h1 className="question">{question}</h1>}
                     <div className="button-container">
 
                         <button className="answer yes" onClick={() => this.handleClick("yes")}>Yes</button>
