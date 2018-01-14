@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import fire from './fire';
 import { Redirect } from 'react-router-dom';
 
-var counter = 0;
 var yesCounter = 0;
+var count = 0;
 
 const questionList = [
     'Do you have a personal computer and/or phone?',
@@ -25,26 +25,34 @@ class Questions extends Component {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.state = {
-            question: 'Do you have a personal computer and/or phone?',
-            questionNum: ''
+            question: questionList[0], 
+            counter: 0,
+            yesCounter: 0,
         }
     }
 
     handleClick = (answer) => {
-        console.log(counter);
-        counter++;
+        // Ouput Count
+        console.log(count);
+        count++;
+        
+        // If yes add to counter
         if (answer === "yes") {
             yesCounter++;
         }
 
-        this.setState({ question: questionList[counter] });
-        fire.database().ref("users/" + localStorage.getItem("username") + "/q" + counter).set(answer);
+        // Send
+        this.setState({ question: questionList[count] });
+        fire.database().ref("users/" + localStorage.getItem("username") + "/q" + count).set(answer);
 
-        if (counter === 15) {
-            this.setState({ fireRedirect: true })
+        // When done - Restart
+        if (count === 12) {
+            this.setState({ fireRedirect: true });
+            count = 0;
+
+            fire.database().ref("users/" + localStorage.getItem("username") + "/sum").set(yesCounter);
+            yesCounter = 0;
         }
-
-        fire.database().ref("users/" + localStorage.getItem("username") + "/sum").set(yesCounter);
     };
 
 
