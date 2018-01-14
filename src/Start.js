@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import fire from './fire';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 
 class Start extends Component {

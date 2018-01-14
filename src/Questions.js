@@ -35,7 +35,7 @@ class Questions extends Component {
     handleClick = (answer) => {
         console.log(counter);
         counter++;
-        if (answer == "yes") {
+        if (answer === "yes") {
             yesCounter++;
         }
         
