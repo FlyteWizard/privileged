@@ -8,19 +8,19 @@ class Start extends Component {
           this.username = "";
           this.answerQuestion = this.answerQuestion.bind(this);
         }
-    
+
       componentWillMount(){
         /* Create reference to users in Firebase Database */
         var usersRef = fire.database().ref("users");
 
     }
-    
+
     addUser(e){
         e.preventDefault(); // <- prevent form submit from reloading the page
         /* Send the message to Firebase */
         fire.database().ref("users/" + this.inputEl.value).set(
             {
-                username: this.inputEl.value, 
+                username: this.inputEl.value,
                 q1: '',
                 q2: ''
             });
@@ -32,17 +32,22 @@ class Start extends Component {
         answerQuestion(questionNumber) {
             console.log(questionNumber);
     }
-      
+
     render() {
-        
+
     return (
         <div className="App">
-            <form onSubmit={this.addUser.bind(this)}>
-                <input type="text" ref={ el => this.inputEl = el }/>
-                <input type="submit" value="Start my walk"/>
-            </form>
-            <button onClick={() => this.answerQuestion(1)}>testbutton</button>
-        <button onClick={() => this.answerQuestion(2)}>testbutton</button>
+            <div className="start-card">
+                <h3 className="card-title">Waiting for others</h3>
+                <p className="App-intro">Need 10 participants</p>
+
+                <form onSubmit={this.addUser.bind(this)}>
+                    <input type="text" placeholder="wtf" ref={ el => this.inputEl = el }/>
+                    <input type="submit" value="Start"/>
+                </form>
+            </div>
+
+
         </div>
 
     );
