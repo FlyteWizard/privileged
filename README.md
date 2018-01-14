@@ -21,7 +21,7 @@ The Privilege of Not Understanding Privilege.
 
 The demo app can be found here: [Privileged](http://www.privileged.tech)
 
-* [Devpost]()
+* [Devpost](https://devpost.com/software/privileged)
 * [Github](https://github.com/FlyteWizard/whatthetech)
 
 ---
