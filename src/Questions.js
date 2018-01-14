@@ -62,17 +62,14 @@ class Questions extends Component {
             fire.database().ref("questionsums/q" + count).push(answer);
         }
         
-        
-        count++;
-        
-        
-        this.setState({ question: questionList[count] });
         fire.database().ref("users/" + localStorage.getItem("username") + "/q" + count).set(answer);
-
         // This sends out twice during the second round
         fire.database().ref("questionsums/q" + count).on("value", function(snap) {
             console.log("Sum of question" + count + ": " + snap.numChildren());
         });
+        
+        count++;
+        this.setState({ question: questionList[count] });
         
         // When done - Restart
         if (count === questionList.length) {
