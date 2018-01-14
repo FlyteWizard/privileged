@@ -34,6 +34,7 @@ class Start extends Component {
     componentWillMount(){
         /* Create reference to users in Firebase Database */
         fire.database().ref("usersinroom/placeholder" + placeholdercounter).set({donotdelete: "donotdelete"});
+        placeholdercounter++;
 
     }
 
