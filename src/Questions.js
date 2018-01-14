@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import fire from './fire';
 
 var counter = 0;
+var yesCounter = 0;
 
 const questionList = [
     '1. If you have a personal computer/phone, take one step forward.',
@@ -31,12 +32,17 @@ class Questions extends Component {
         }
     }
     
-    
     handleClick = (answer) => {
         console.log(counter);
         counter++;
+        if (answer == "yes") {
+            yesCounter++;
+        }
+        
+        
         this.setState({ question: questionList[counter] });
         fire.database().ref("users/" + localStorage.getItem("username") + "/q" + counter).set(answer);
+        fire.database().ref("users/" + localStorage.getItem("username") + "/sum").set(yesCounter);
     };
     
     
