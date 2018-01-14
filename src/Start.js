@@ -21,18 +21,18 @@ class Start extends Component {
         fire.database().ref("usersinroom/placeholder").set({donotdelete: "donotdelete"});
 
     }
-    
+
     componentDidMount() {
         this.interval = setInterval(() => this.update(), 3000);
     }
-    
+
     update() {
         const {updates} = this.state;
 
         this.setState({
             smallValue: usersinroom
         });
-    
+
     }
 
     submitForm = (e) => {
@@ -83,36 +83,21 @@ class Start extends Component {
 
       const { from } = this.props.location.state || '/'
       const { fireRedirect, smallValue } = this.state
-      
+
 
     return (
 
         <div className="Start">
             <div className="start-card">
                 <h3 className="card-title">Waiting for others</h3>
-                <p className="card-intro">Need 10 participants</p>
+                <p className="card-intro">Need min. 10 participants<br />There are currently  </p>
 
-
-                <AnimatedNumber
-                        style={{
-                            transition: '0.8s ease-out',
-                            transitionProperty:
-                                'background-color, color'
-                        }}
-                        frameStyle={perc => (
-                            perc === 100 ? {} : {backgroundColor: '#ffeb3b'}
-                        )}
-                        stepPrecision={0}
-                        value={smallValue}
-                        formatValue={n => 'Animated numbers are ${n} ' +
-                            'times more awesome than regular ones'}/>
-                 
                 <h1 className="num-participants"> {usersinroom} </h1>
 
-
                     <form className="start-form" onSubmit={this.submitForm.bind(this)}>
-                        <input className="start-name" type="text" placeholder="Your display name" ref={ el => this.inputEl = el }/>
-                        <input className ="start-button" type="submit" value="Start"/>
+                        <input className="start-name" type="text" placeholder="Your display name*" ref={ el => this.inputEl = el } required/>
+
+                        <input className ="start-button" type="submit" value="Start" disabled={usersinroom<10} />
                     </form>
 
                     {fireRedirect && (
