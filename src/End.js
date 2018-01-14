@@ -2,9 +2,28 @@ import React, { Component } from 'react';
 import fire from './fire';
 import { Link } from 'react-router-dom';
 import { HorizontalBar } from 'react-chartjs-2';
+import { Transition } from 'react-transition-group';
+
 
 var totalUsers = 10.0;
 var baseRef = fire.database();
+
+
+const duration = 500;
+
+const defaultStyle = {
+  transition: `opacity ${duration}ms ease-in-out`,
+  opacity: 0,
+  //padding: 20,
+  //display: 'inline-block',
+  //backgroundColor: '#8787d8'
+}
+
+const transitionStyles = {
+  entering: { opacity: 0 },
+  entered: { opacity: 1 },
+};
+
 
 
 const data = {
@@ -53,23 +72,31 @@ class End extends Component {
 
     render() {
         return (
-            <div className="Overview">
-                <div className="overview-text">
-                    <div class="overview-inline">
-                        <h1 className="overview-title">Overview</h1>
-                        <p className="App-intro">
-                          This activity forces participants to confront the ways in which society privileges some individuals over others.
-                        </p>
-                    </div>
-                    <div class="overview-inline">
-                        <Link to='/compare' className="App-button compare-button">Compare</Link>
-                    </div>
-                </div>
+            <Transition appear={true} in={true} timeout={duration}>
+                {(state) => (
+                    <div style={{
+                        ...defaultStyle,
+                        ...transitionStyles[state]
+                    }} className="Overview">
+                    
+                        <div className="overview-text">
+                            <div class="overview-inline">
+                                <h1 className="overview-title">Overview</h1>
+                                <p className="App-intro">
+                                  This activity forces participants to confront the ways in which society privileges some individuals over others.
+                                </p>
+                            </div>
+                            
+                            <div class="overview-inline">
+                                <Link to='/compare' className="App-button compare-button">Compare</Link>
+                            </div>
+                        
+                        </div>
 
-                <HorizontalBar data={data} />
-            </div>
+                    <HorizontalBar data={data} />
+                </div>)}
+            </Transition>
         );
-
     }
 
 }

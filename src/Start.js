@@ -1,8 +1,24 @@
 import React, { Component } from 'react';
 import fire from './fire';
 import { Redirect } from 'react-router-dom';
+import { Transition } from 'react-transition-group';
 
 var usersinroom = 0;
+
+const duration = 500;
+
+const defaultStyle = {
+  transition: `opacity ${duration}ms ease-in-out`,
+  opacity: 0,
+  //padding: 20,
+  //display: 'inline-block',
+  //backgroundColor: '#8787d8'
+}
+
+const transitionStyles = {
+  entering: { opacity: 0 },
+  entered: { opacity: 1 },
+};
 
 class Start extends Component {
    constructor(props) {
@@ -79,25 +95,31 @@ class Start extends Component {
 
 
     return (
+         <Transition appear={true} in={true} timeout={duration}>
+            {(state) => (
+                <div style={{
+                    ...defaultStyle,
+                    ...transitionStyles[state]
+                }} className="Start">
+                
+                <div className="start-card">
+                    <h3 className="card-title">Waiting for others</h3>
+                    <p className="card-intro">Need min. 10 participants<br />There are currently  </p>
 
-        <div className="Start">
-            <div className="start-card">
-                <h3 className="card-title">Waiting for others</h3>
-                <p className="card-intro">Need min. 10 participants<br />There are currently  </p>
+                    <h1 className="num-participants"> {usersinroom} </h1>
 
-                <h1 className="num-participants"> {usersinroom} </h1>
+                        <form className="start-form" onSubmit={this.submitForm.bind(this)}>
+                            <input className="start-name" type="text" placeholder="Your display name*" ref={ el => this.inputEl = el } required/>
 
-                    <form className="start-form" onSubmit={this.submitForm.bind(this)}>
-                        <input className="start-name" type="text" placeholder="Your display name*" ref={ el => this.inputEl = el } required/>
+                            <input className ="start-button" type="submit" value="Start" disabled={usersinroom<10} />
+                        </form>
 
-                        <input className ="start-button" type="submit" value="Start" disabled={usersinroom<10} />
-                    </form>
-
-                    {fireRedirect && (
-                      <Redirect to={from || '/questions'}/>
-                    )}
-                </div>
+                        {fireRedirect && (
+                          <Redirect to={from || '/questions'}/>
+                        )}
             </div>
+            </div>)}
+        </Transition>
 
         );
     }

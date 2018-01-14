@@ -1,0 +1,278 @@
+
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600');
+
+body {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-family: 'Work Sans', sans-serif;
+  letter-spacing: 0.0625em;
+}
+
+.App,
+.Questions {
+  padding: 0 6em;
+}
+
+.App-header {
+  padding: 5em 0;
+  display: flex;
+}
+.App-logo {
+  height: 2.3em;
+}
+.App-nav {
+  margin-left: auto;
+  color: #fff;
+}
+.Link:hover {
+    text-decoration: none;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 1px;
+
+}
+.Link:hover,
+.Link:active,
+.Link:focus {
+  color: #fff;
+}
+
+.App-title {
+  font-size: 2.1em;
+  padding: 4em 0 0.8em 0;
+  font-weight: 600;
+}
+
+.App-intro {
+  max-width: 45em;
+  color: #fff;
+  font-size: 1em;
+  padding: 0 0 3em 0;
+  font-weight: 300;
+  line-height: 1.8;
+}
+.App-button {
+  background-color: #FFFFFF;
+  color: black;
+  font-weight: 600;
+  padding: 1em 3em;
+  box-shadow: 0.2em 0.2em 1.5em #4A90E2;
+  transition: box-shadow 0.2s ease-out;
+}
+.App-button:hover {
+  transition: box-shadow 0.2s ease-in;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0.4em 0.4em 1.5em #4A90E2;
+}
+
+
+
+
+/* ---- Start page styles */
+
+.start-card {
+    background-color: #fff;
+    padding: 4em 5em;
+    max-width: 450px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.card-title {
+    color: #000;
+    letter-spacing: normal;
+    font-weight: 600 !important;
+    margin-bottom: 0.3em;
+}
+
+.card-intro {
+    color: #959595;
+    font-weight: 300 !important;
+    line-height: 1.4;
+}
+
+.num-participants {
+    font-size: 3em;
+    font-weight: 600 ;
+    color: #000;
+    margin: 1em 0;
+
+}
+
+.start-form {
+    padding: 1em 0;
+}
+.start-form input {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    /* margin-top: 3em; */
+    width: 80%;
+}
+
+.start-name {
+}
+
+.start-name[type=text] {
+    border:none;
+    padding-bottom: 5px;
+    width: 80%;
+    border-bottom: 1px solid #000;
+    color: #000;
+    letter-spacing: 0.5px;
+}
+
+.start-name[type=text]:focus,
+.start-name[type=text]:active
+{
+    outline: none;
+    /* border-color: red; */
+}
+
+.start-name[type=submit] {
+    background: #fff;
+    cursor:pointer;
+}
+
+.start-button {
+  background-color: #000;
+  color: #fff;
+  font-weight: 600;
+  transition: box-shadow 0.2s ease-out;
+  letter-spacing: 0.5px;
+  padding: 1em 3em;
+  border: none;
+  margin-top: 3em !important;
+  box-shadow: 0.2em 0.2em 1.5em #4A90E2;
+}
+.start-button:disabled {
+  background-color: #d4d4d4;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 1em 3em;
+  border: none;
+  cursor: not-allowed;
+  margin-top: 3em !important;
+  box-shadow: none;
+}
+.start-button:hover {
+  text-decoration: none;
+  transition: box-shadow 0.2s ease-in;
+  /* color: black; */
+  /* box-shadow: 0.4em 0.4em 1.5em #4A90E2; */
+  cursor: pointer;
+}
+
+
+
+
+/* ---- Questions page styles */
+
+.Questions {
+    height: 100px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.questions-container {
+    /* position: absolute;
+    top: 50%;
+    transform: translateY(-50%); */
+}
+
+.button-container {
+    /* display: block;
+    margin: 2em auto; */
+    text-align: center;
+}
+
+.question {
+    min-height: 100px;
+    font-size: 2.25em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.answer {
+    margin: 2em ;
+    background-color: #fff;
+    color: #000;
+    font-weight: 600;
+    width: 200px;
+    letter-spacing: 0.5px;
+    padding: 1em 3em;
+    border: none;
+    margin-top: 3em !important;
+    transition: box-shadow 0.2s ease-out;
+}
+.yes:hover {
+  transition: box-shadow 0.2s ease-in;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0.4em 0.4em 1.5em #4A90E2;
+}
+.yes {
+    box-shadow: 0.2em 0.2em 1.5em #4A90E2;
+}
+.no:hover {
+  transition: box-shadow 0.2s ease-in;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0.4em 0.4em 1.5em #DD8585;
+}
+
+.no {
+    box-shadow: 0.2em 0.2em 1.5em #DD8585;
+
+}
+
+
+/* ---Overview page styles */
+.overview-title {
+  font-size: 2.1em;
+  padding: 0;
+  font-weight: 600;
+}
+
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (max-width: 767px) {
+    .App {padding: 0 2.5em;}
+
+    .Questions {
+        padding: 0;
+        height: auto;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        margin: 0;
+        position: inherit;
+    }
+    .answer { margin: 1.5em 0 !important;}
+
+    .App-title {
+        padding: 0em 0 0.8em 0;
+    }
+    .App-intro {
+        max-width: auto;
+        font-size: 0.85em;
+    }
+    .start-card {
+        padding: 1em 2em;
+    }
+    .question { font-size: 1.5em;}
+
+
+}
