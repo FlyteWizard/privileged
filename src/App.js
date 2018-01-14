@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import privileged from './privileged.png';
 import './App.css';
 
 class App extends Component {
@@ -7,11 +7,12 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <img src={privileged} className="App-logo" alt="logo" />
+          <p className="App-nav">About</p>
         </header>
+        <h1>Privilege Walk</h1>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          This activity forces participants to confront the ways in which society privileges some individuals over others.
         </p>
       </div>
     );

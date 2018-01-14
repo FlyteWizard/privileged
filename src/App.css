@@ -1,17 +1,30 @@
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+  text-align: left;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+}
+
 .App {
-  text-align: center;
+  padding: 0 6em;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 2em;
+}
+.App-nav {
+  margin-left: auto;
+  color: #d4d4d4;
 }
 
 .App-header {
-  background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
+  display: flex;
 }
 
 .App-title {
@@ -19,10 +32,6 @@
 }
 
 .App-intro {
+  color: #d4d4d4;
   font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
