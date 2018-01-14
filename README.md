@@ -4,25 +4,33 @@ This app was made during nwHacks 2018.
 
 ## Proposal
 
-A web application for conducting a ‘privilege walk’.
+A web application for conducting a ‘privilege walk’. The questions are tailored towards the tech community in North America.
 
 ## Social Issue
 
-A lack of awareness of privilege?? [citation needed].
+The Privilege of Not Understanding Privilege.
 
-### Install
+## Install
 
-1. Clone Repo
+1. `git clone https://github.com/FlyteWizard/whatthetech.git`
 2. `npm install`
-3. `npm install firebase`
-4. `npm install react-router-dom`
-5. `npm start`
-6. visit http://localhost:3000/
+3. `npm start`
+4. visit http://localhost:3000/
+
+## Links
+
+The demo app can be found here: [Privileged](http://www.privileged.tech)
+
+* [Devpost]()
+* [Github](https://github.com/FlyteWizard/whatthetech)
+
+---
 
 ### Resources
 
 * https://edge.psu.edu/workshops/mc/power/privilegewalk.shtml
 * https://hackernoon.com/tech-your-privilege-at-the-door-5d8da0c41c6b
+* https://www.psychologytoday.com/blog/feeling-our-way/201702/the-privilege-not-understanding-privilege
 
 ### Contributors
 
@@ -30,13 +38,6 @@ A lack of awareness of privilege?? [citation needed].
 * [Dominique Charlebois](https://github.com/FlyteWizard)
 * [Macguire Rintoul](https://github.com/mrintoul)
 * [Sophia Chan](https://github.com/schan27)
-
-### Links
-
-The demo app can be found here: [Privileged](http://www.privileged.tech)
-
-* [Devpost]()
-* [Github](https://github.com/FlyteWizard/whatthetech)
 
 ### Application Screenshots
 

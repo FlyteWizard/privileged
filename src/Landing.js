@@ -5,7 +5,7 @@ import fire from './fire';
 for (var i = 0; i < 12; i++) {
     var str = "q" + i;
     console.log(str);
-    fire.database().ref("questionsums/" + str + '/ignore').set("ignore");
+    fire.database().ref("questionsums/" + str + "/ignore").set("ignore");
 }
 
 class Landing extends Component {

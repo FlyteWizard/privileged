@@ -29,7 +29,7 @@ body {
 .Link:hover {
     text-decoration: none;
     border-bottom: 1px solid #fff;
-    padding-bottom: 3px;
+    padding-bottom: 1px;
 
 }
 .Link:hover,
@@ -91,7 +91,7 @@ body {
 .card-intro {
     color: #959595;
     font-weight: 300 !important;
-    line-height: 1;
+    line-height: 1.4;
 }
 
 .num-participants {
@@ -138,20 +138,33 @@ body {
 }
 
 .start-button {
+  background-color: #000;
+  color: #fff;
+  font-weight: 600;
+  transition: box-shadow 0.2s ease-out;
+  letter-spacing: 0.5px;
+  padding: 1em 3em;
+  border: none;
+  margin-top: 3em !important;
+  box-shadow: 0.2em 0.2em 1.5em #4A90E2;
+}
+.start-button:disabled {
   background-color: #d4d4d4;
   color: #fff;
   font-weight: 600;
   letter-spacing: 0.5px;
   padding: 1em 3em;
   border: none;
+  cursor: not-allowed;
   margin-top: 3em !important;
-  /* box-shadow: 0.2em 0.2em 1.5em #4A90E2; */
+  box-shadow: none;
 }
 .start-button:hover {
   text-decoration: none;
+  transition: box-shadow 0.2s ease-in;
   /* color: black; */
   /* box-shadow: 0.4em 0.4em 1.5em #4A90E2; */
-  cursor: not-allowed;
+  cursor: pointer;
 }
 
 
@@ -219,5 +232,38 @@ body {
 
 .no {
     box-shadow: 0.2em 0.2em 1.5em #DD8585;
+
+}
+
+
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (max-width: 767px) {
+    .App {padding: 0 2.5em;}
+
+    .Questions {
+        padding: 0;
+        height: auto;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        margin: 0;
+        position: inherit;
+    }
+    .answer { margin: 1.5em 0 !important;}
+
+    .App-title {
+        padding: 0em 0 0.8em 0;
+    }
+    .App-intro {
+        max-width: auto;
+        font-size: 0.85em;
+    }
+    .start-card {
+        padding: 1em 2em;
+    }
+    .question { font-size: 1.5em;}
+
 
 }
