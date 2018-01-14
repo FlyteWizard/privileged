@@ -7,6 +7,11 @@ var usersinroom = 0;
 
 var placeholdercounter = 0;
 
+fire.database().ref("usersinroom").on("value", function(snap) {
+    console.log("Online:" + snap.numChildren());
+    placeholdercounter = snap.numChildren();
+});
+
 const duration = 500;
 
 const defaultStyle = {
@@ -69,6 +74,7 @@ class Start extends Component {
 
       // Add ourselves to presence list when online.
       var listRef = fire.database().ref("usersinroom");
+      
       var presenceRef = fire.database().ref("usersinroom/" + localStorage.getItem("username"));
       if (localStorage.getItem("username") !== "undefined") {
           fire.database().ref("usersinroom/placeholder" + placeholdercounter).remove();
