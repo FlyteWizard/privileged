@@ -41,7 +41,7 @@ class Start extends Component {
                 <input type="text" ref={ el => this.inputEl = el }/>
                 <input type="submit" value="Start my walk"/>
             </form>
-            <button onClick={() => this.answerQuestion(1)}>testbutton</button>
+        <button onClick={() => this.answerQuestion(1)}>testbutton</button>
         <button onClick={() => this.answerQuestion(2)}>testbutton</button>
         </div>
 

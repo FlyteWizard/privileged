@@ -4,6 +4,7 @@ import './App.css';
 import { Switch, Route, Link } from 'react-router-dom';
 import Start from './Start';
 import Landing from './Landing';
+import Questions from './Questions';
 
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
           <Switch>
                 <Route exact path='/' component={Landing}/>
                 <Route exact path='/start' component={Start}/>
+                <Route exact path='/question' component={Questions}/>
            </Switch>
           
           
