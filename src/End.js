@@ -21,6 +21,8 @@ class End extends Component {
     render() {
         return (
             <div>
+                <p>Overview</p>
+                
                 <Bar 
                     data={data}
                     width={100}

@@ -14,10 +14,26 @@ const questionList = [
     'Have you ever tried to change your appearance, mannerisms, or behavior to avoid being judged or ridiculed, or to gain more credibility?',
     'Have you ever felt or were told that you should work twice as hard as others to succeed in school or career because of your background?',
     'Do you have a disability?',
-    'Did your parent(s) attended college?',
+    'Did your parent(s) attend college?',
     'Do you have internet access at home?',
     'Are you a cis-gendered male?',
     "Have you been mistaken for a non-developer?"
+];
+
+/* If yes means that you are privileged, then we map to a 1, otherwise map to 0 */
+const yesMap = [
+    1,
+    0,
+    1, 
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    0
 ];
 
 class Questions extends Component {
@@ -26,7 +42,6 @@ class Questions extends Component {
         this.handleClick = this.handleClick.bind(this);
         this.state = {
             question: 'Do you have a personal computer and/or phone?',
-            questionNum: ''
         }
     }
 
@@ -40,7 +55,7 @@ class Questions extends Component {
         this.setState({ question: questionList[counter] });
         fire.database().ref("users/" + localStorage.getItem("username") + "/q" + counter).set(answer);
 
-        if (counter === 15) {
+        if (counter === questionList.length) {
             this.setState({ fireRedirect: true })
         }
 
