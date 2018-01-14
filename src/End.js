@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import fire from './fire';
 import { Bar } from 'react-chartjs-2';
 
+var x = fire.database()
 
 const data = {
      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],

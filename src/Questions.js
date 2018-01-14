@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import fire from './fire';
 import { Redirect } from 'react-router-dom';
 
-var yesCounter = 0;
+var steps = 0;
 var count = 0;
 
 const questionList = [
@@ -20,8 +20,7 @@ const questionList = [
     "Have you been mistaken for a non-developer?"
 ];
 
-/* If yes means that you are privileged, then we map to a 1, otherwise map to 0 */
-const yesMap = [
+const questionType = [
     1,
     0,
     1, 
@@ -36,29 +35,37 @@ const yesMap = [
     0
 ];
 
+
 class Questions extends Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        count = 0;
+        steps = 0;
         this.state = {
-            question: questionList[0], 
-            count: 0,
-            yesCounter: 0,
+            question: questionList[0],
         }
     }
 
     handleClick = (answer) => {
         // Ouput Count
+        // if user doesn't finish quiz, the counter is never reset.
         console.log(count);
-        count++;
         
-        // If yes add to count
-        if (answer === "yes") {
-            yesCounter++;
+        if ( ((questionType[count] === 1) && (answer === "yes")) || 
+                    ((questionType[count] === 0) && (answer === "no")) ) { // Then take a step forward
+            steps++;
+            // Increment the user sum
+            fire.database().ref("users/" + localStorage.getItem("username") + "/sum").set(steps);
+            // Add an entry so that we can keep track of
+            // how many people are privileged based on the question
             fire.database().ref("questionsums/q" + count).push(answer);
         }
-
-        // Send
+        
+        
+        count++;
+        
+        
         this.setState({ question: questionList[count] });
         fire.database().ref("users/" + localStorage.getItem("username") + "/q" + count).set(answer);
 
@@ -66,17 +73,13 @@ class Questions extends Component {
         fire.database().ref("questionsums/q" + count).on("value", function(snap) {
             console.log("Sum of question" + count + ": " + snap.numChildren());
         });
-
-        if (count === questionList.length) {
-            this.setState({ fireRedirect: true })
-        }
-
+        
         // When done - Restart
-        if (count === 12) {
+        if (count === questionList.length) {
             this.setState({ fireRedirect: true });
             count = 0;
-            fire.database().ref("users/" + localStorage.getItem("username") + "/sum").set(yesCounter);
-            yesCounter = 0;
+            fire.database().ref("users/" + localStorage.getItem("username") + "/sum").set(steps);
+            steps = 0;
         }
     };
 
@@ -84,13 +87,11 @@ class Questions extends Component {
     render() {
         
 
-        const { from } = this.props.location.state || '/'
+        const { from } = this.props.location.state || '/';
         const { question } = this.state;
-        const { fireRedirect } = this.state
+        const { fireRedirect } = this.state;
 
         return (
-
-
             <div className="Questions">
                 <div className="questions-container">
                     {question && <h1 className="question">{question}</h1>}
@@ -108,10 +109,6 @@ class Questions extends Component {
 
 
             </div>
-
-
-
-
 
         );
 
