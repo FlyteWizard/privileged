@@ -108,33 +108,24 @@ class Questions extends Component {
 
         return (
         
-            <div className="Questions">
-                    <div className="questions-container">
-                            <Transition appear={true} in={true} timeout={duration}>
-                                {(state) => (
-                                <div style={{
-                                    ...defaultStyle,
-                                    ...transitionStyles[state]
-                                }}>
-                                    {question && <h1 className="question">{question}</h1>}
-                                </div>)}
-                            </Transition>
-                            
-                            
-                            <div className="button-container">
+        <div className="Questions">
+                <div className="questions-container">
+                    {question && <h1 className="question">{question}</h1>}
+                    <div className="button-container">
 
-                                <button className="answer yes" onClick={() => this.handleClick("yes")}>Yes</button>
-                                <button className="answer no" onClick={() => this.handleClick("no")}>No</button>
-                            </div>
+                        <button className="answer yes" onClick={() => this.handleClick("yes")}>Yes</button>
+                        <button className="answer no" onClick={() => this.handleClick("no")}>No</button>
                     </div>
-
-                    {fireRedirect && (
-                        <Redirect to={from || '/overview'}/>
-                    )}
-
-
                 </div>
-        );
+
+
+                {fireRedirect && (
+                    <Redirect to={from || '/overview'}/>
+                )}
+
+
+            </div>
+
 
     }
 

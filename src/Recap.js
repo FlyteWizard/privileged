@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import fire from './fire';
-
 
 class Recap extends Component {
 
