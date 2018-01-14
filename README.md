@@ -41,22 +41,22 @@ The demo app can be found here: [Privileged](http://www.privileged.tech)
 
 ### Application Screenshots
 
+#### Thumbnail Page
+
+![Landing Page](./product/thumbnail.png)
+
 #### Landing Page
 
-![Landing Page](./product/landing.png)
+![Landing Page](./product/landingpage.png)
 
 #### Start Page
 
 ![Start Page](./product/start.png)
 
-#### Walk Page
-
-![Walk Page](./product/walk.png)
-
 #### Question Page
 
 ![Questions](./product/questions.png)
 
-### End Page
+#### Privileged Layout
 
-![End Page](./product/end.png)
+![Landing Page](./product/privileged-layout.png)

@@ -23,7 +23,6 @@ class Landing extends Component {
               Privilege is often invisible, yet it can have a significant influence on our everyday lives.
             </p>
 
-
             <Link to='/start' className="App-button">Start my walk</Link>
             
         </div>
