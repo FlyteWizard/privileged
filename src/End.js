@@ -79,20 +79,20 @@ class End extends Component {
                         ...transitionStyles[state]
                     }} className="Overview">
                     
-                        <div className="overview-text">
-                            <div class="overview-inline">
-                                <h1 className="overview-title">Overview</h1>
-                                <p className="App-intro">
-                                  This activity forces participants to confront the ways in which society privileges some individuals over others.
-                                </p>
-                            </div>
-                            
-                            <div class="overview-inline">
-                                <Link to='/compare' className="App-button compare-button">Compare</Link>
-                            </div>
-                        
+                    <div className="overview-text">
+                        <div class="overview-inline">
+                            <h1 className="overview-title">Overview</h1>
+                            <p className="App-intro">
+                              This activity forces participants to confront the ways in which society privileges some individuals over others.
+                            </p>
                         </div>
-
+                        
+                        <div class="overview-inline">
+                            <Link to='/compare' className="App-button compare-button">Compare</Link>
+                        </div>
+                    
+                    </div>
+                    
                     <HorizontalBar data={data} />
                 </div>)}
             </Transition>

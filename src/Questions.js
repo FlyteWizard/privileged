@@ -1,27 +1,9 @@
 import React, { Component } from 'react';
 import fire from './fire';
 import { Redirect } from 'react-router-dom';
-import { Transition } from 'react-transition-group';
-
 
 var steps = 0;
 var count = 0;
-
-const duration = 500;
-
-const defaultStyle = {
-  transition: `opacity ${duration}ms ease-in-out`,
-  opacity: 0,
-  //padding: 20,
-  //display: 'inline-block',
-  //backgroundColor: '#8787d8'
-}
-
-const transitionStyles = {
-  entering: { opacity: 0 },
-  entered: { opacity: 1 },
-};
-
 
 const questionList = [
     'Do you have a personal computer and/or phone?',
@@ -107,8 +89,7 @@ class Questions extends Component {
         const { fireRedirect } = this.state;
 
         return (
-        
-        <div className="Questions">
+            <div className="Questions">
                 <div className="questions-container">
                     {question && <h1 className="question">{question}</h1>}
                     <div className="button-container">
@@ -126,6 +107,7 @@ class Questions extends Component {
 
             </div>
 
+        );
 
     }
 
