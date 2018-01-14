@@ -10,7 +10,7 @@ A web application for conducting a ‘privilege walk’.
 
 A lack of awareness of privilege?? [citation needed].
 
-### Ressources
+### Resources
 
 * https://edge.psu.edu/workshops/mc/power/privilegewalk.shtml
 * https://hackernoon.com/tech-your-privilege-at-the-door-5d8da0c41c6b
