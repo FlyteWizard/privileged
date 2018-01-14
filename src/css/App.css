@@ -47,7 +47,7 @@ body {
 }
 
 .App-intro {
-  max-width: 45em;
+  max-width: 47em;
   color: #fff;
   font-size: 1em;
   padding: 0 0 3em 0;
@@ -296,6 +296,10 @@ body {
     .overview-text {
         display: block;
         margin-bottom: 3em;
+    }
+    .Compare .overview-text { margin-bottom: 4em !important;}
+    .Compare .App-intro {
+        margin-bottom: 2em;
     }
     .Questions {
         padding: 0;
