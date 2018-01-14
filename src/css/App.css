@@ -245,14 +245,30 @@ body {
   font-weight: 600;
 }
 
-.Overview {
+.Overview, .Compare {
     margin-bottom: 5em;
+}
+.overview-inline {
+    margin: auto 0;
+}
+.overview-text {
+    display: flex;
+    justify-content: space-between;
+}
+.compare-button {
+}
+
+.overview-intro {
+    display: inline-block;
 }
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) and (max-width: 767px) {
     .App {padding: 0 2.5em;}
-
+    .overview-text {
+        display: block;
+        margin-bottom: 3em;
+    }
     .Questions {
         padding: 0;
         height: auto;

@@ -54,11 +54,17 @@ class End extends Component {
     render() {
         return (
             <div className="Overview">
-                <h1 className="overview-title">Overview</h1>
-                <p className="App-intro">
-                  This activity forces participants to confront the ways in which society privileges some individuals over others.
-                </p>
-                <Link to='/compare' className="App-button">Compare</Link>
+                <div className="overview-text">
+                    <div class="overview-inline">
+                        <h1 className="overview-title">Overview</h1>
+                        <p className="App-intro">
+                          This activity forces participants to confront the ways in which society privileges some individuals over others.
+                        </p>
+                    </div>
+                    <div class="overview-inline">
+                        <Link to='/compare' className="App-button compare-button">Compare</Link>
+                    </div>
+                </div>
 
                 <HorizontalBar data={data} />
             </div>
