@@ -10,6 +10,15 @@ A web application for conducting a ‘privilege walk’.
 
 A lack of awareness of privilege?? [citation needed].
 
+### Install
+
+1. Clone Repo
+2. `npm install`
+3. `npm firebase`
+4. `npm router-react-dom`
+5. `npm start`
+6. visit http://localhost:3000/
+
 ### Resources
 
 * https://edge.psu.edu/workshops/mc/power/privilegewalk.shtml
