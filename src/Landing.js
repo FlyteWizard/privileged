@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import fire from './fire';
 
-for (var i = 1; i < 13; i++) {
+for (var i = 0; i < 12; i++) {
     var str = "q" + i;
     console.log(str);
-    fire.database().ref("questionsums/" + str).set({ignore: "ignore"});
+    fire.database().ref("questionsums/" + str + "/ignore").set("ignore");
 }
 
 class Landing extends Component {
