@@ -50,8 +50,13 @@ class Questions extends Component {
         counter++;
         if (answer === "yes") {
             yesCounter++;
+            fire.database().ref("questionsums/q" + counter).push(answer);
         }
-
+        
+        fire.database().ref("questionsums/q" + counter).on("value", function(snap) {
+            console.log("Sum of question" + counter + ": " + snap.numChildren());
+        });
+        
         this.setState({ question: questionList[counter] });
         fire.database().ref("users/" + localStorage.getItem("username") + "/q" + counter).set(answer);
 
@@ -64,6 +69,7 @@ class Questions extends Component {
 
 
     render() {
+        
 
         const { from } = this.props.location.state || '/'
         const { question } = this.state;
