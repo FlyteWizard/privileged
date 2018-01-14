@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import fire from './fire';
 import { HorizontalBar } from 'react-chartjs-2';
 
-
-var questionSum = 0;
 var totalUsers = 10.0;
 var baseRef = fire.database();
 

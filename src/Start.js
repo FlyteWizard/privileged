@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import fire from './fire';
 import { Redirect } from 'react-router-dom';
-import AnimatedNumber from 'react-animated-number';
 
 var usersinroom = 0;
 
@@ -16,8 +15,6 @@ class Start extends Component {
 
     componentWillMount(){
         /* Create reference to users in Firebase Database */
-        var usersRef = fire.database().ref("users");
-        var username = "";
         fire.database().ref("usersinroom/placeholder").set({donotdelete: "donotdelete"});
 
     }
@@ -27,12 +24,9 @@ class Start extends Component {
     }
 
     update() {
-        const {updates} = this.state;
-
         this.setState({
             smallValue: usersinroom
         });
-
     }
 
     submitForm = (e) => {
@@ -58,7 +52,6 @@ class Start extends Component {
       var listRef = fire.database().ref("usersinroom");
       var presenceRef = fire.database().ref("usersinroom/" + localStorage.getItem("username"));
       if (localStorage.getItem("username") !== "undefined") {
-          var currentUser = presenceRef.push(localStorage.getItem("username"));
           fire.database().ref("usersinroom/placeholder").remove();
       }
 
@@ -82,7 +75,7 @@ class Start extends Component {
       */
 
       const { from } = this.props.location.state || '/'
-      const { fireRedirect, smallValue } = this.state
+      const { fireRedirect } = this.state
 
 
     return (
