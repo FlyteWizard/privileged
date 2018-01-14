@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import fire from './fire';
 import { Redirect } from 'react-router-dom';
 
-var counter = 0;
 var yesCounter = 0;
+var count = 0;
 
 const questionList = [
     'Do you have a personal computer and/or phone?',
@@ -41,30 +41,42 @@ class Questions extends Component {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.state = {
-            question: 'Do you have a personal computer and/or phone?',
+            question: questionList[0], 
+            count: 0,
+            yesCounter: 0,
         }
     }
 
     handleClick = (answer) => {
-        console.log(counter);
-        counter++;
+        // Ouput Count
+        console.log(count);
+        count++;
+        
+        // If yes add to count
         if (answer === "yes") {
             yesCounter++;
-            fire.database().ref("questionsums/q" + counter).push(answer);
+            fire.database().ref("questionsums/q" + count).push(answer);
         }
-        
-        fire.database().ref("questionsums/q" + counter).on("value", function(snap) {
-            console.log("Sum of question" + counter + ": " + snap.numChildren());
-        });
-        
-        this.setState({ question: questionList[counter] });
-        fire.database().ref("users/" + localStorage.getItem("username") + "/q" + counter).set(answer);
 
-        if (counter === questionList.length) {
+        // Send
+        this.setState({ question: questionList[count] });
+        fire.database().ref("users/" + localStorage.getItem("username") + "/q" + count).set(answer);
+
+        fire.database().ref("questionsums/q" + count).on("value", function(snap) {
+            console.log("Sum of question" + count + ": " + snap.numChildren());
+        });
+
+        if (count === questionList.length) {
             this.setState({ fireRedirect: true })
         }
 
-        fire.database().ref("users/" + localStorage.getItem("username") + "/sum").set(yesCounter);
+        // When done - Restart
+        if (count === 12) {
+            this.setState({ fireRedirect: true });
+            count = 0;
+            fire.database().ref("users/" + localStorage.getItem("username") + "/sum").set(yesCounter);
+            yesCounter = 0;
+        }
     };
 
 
