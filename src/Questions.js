@@ -43,7 +43,7 @@ class Questions extends Component {
         this.setState({ question: questionList[counter] });
         fire.database().ref("users/" + localStorage.getItem("username") + "/q" + counter).set(answer);
         
-        if (counter == 15) {
+        if (counter === 15) {
             this.setState({ fireRedirect: true })
         }
 
