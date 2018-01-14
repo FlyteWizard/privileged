@@ -3,6 +3,7 @@ import fire from './fire';
 import { Redirect } from 'react-router-dom';
 
 var counter = 0;
+var yesCounter = 0;
 
 const questionList = [
     '1. If you have a personal computer/phone, take one step forward.',
@@ -32,16 +33,21 @@ class Questions extends Component {
         }
     }
     
-    
     handleClick = (answer) => {
         console.log(counter);
         counter++;
+        if (answer == "yes") {
+            yesCounter++;
+        }        
+        
         this.setState({ question: questionList[counter] });
         fire.database().ref("users/" + localStorage.getItem("username") + "/q" + counter).set(answer);
         
         if (counter == 15) {
             this.setState({ fireRedirect: true })
         }
+
+        fire.database().ref("users/" + localStorage.getItem("username") + "/sum").set(yesCounter);
     };
     
     
