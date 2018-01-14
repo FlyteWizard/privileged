@@ -24,15 +24,16 @@ class Questions extends Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        count = 0;
+        yesCounter = 0;
         this.state = {
-            question: questionList[0], 
-            counter: 0,
-            yesCounter: 0,
+            question: questionList[0],
         }
     }
 
     handleClick = (answer) => {
         // Ouput Count
+        // if user doesn't finish quiz, the counter is never reset.
         console.log(count);
         count++;
         
@@ -65,9 +66,9 @@ class Questions extends Component {
     render() {
         
 
-        const { from } = this.props.location.state || '/'
+        const { from } = this.props.location.state || '/';
         const { question } = this.state;
-        const { fireRedirect } = this.state
+        const { fireRedirect } = this.state;
 
         return (
 
