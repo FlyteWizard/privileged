@@ -39,11 +39,16 @@ class Questions extends Component {
         // If yes add to counter
         if (answer === "yes") {
             yesCounter++;
+            fire.database().ref("questionsums/q" + count).push(answer);
         }
 
         // Send
         this.setState({ question: questionList[count] });
         fire.database().ref("users/" + localStorage.getItem("username") + "/q" + count).set(answer);
+
+        fire.database().ref("questionsums/q" + count).on("value", function(snap) {
+            console.log("Sum of question" + count + ": " + snap.numChildren());
+        });
 
         // When done - Restart
         if (count === 12) {
@@ -57,6 +62,7 @@ class Questions extends Component {
 
 
     render() {
+        
 
         const { from } = this.props.location.state || '/'
         const { question } = this.state;
