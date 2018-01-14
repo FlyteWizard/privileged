@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import fire from './fire';
+
+for (var i = 1; i < 13; i++) {
+    var str = "q" + i;
+    console.log(str);
+    fire.database().ref("questionsums/" + str).set({ignore: "ignore"});
+}
 
 class Landing extends Component {
     render() {
         localStorage.setItem("username", this.username);
+        
         return (
         <div>
 
