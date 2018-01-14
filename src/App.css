@@ -10,12 +10,13 @@ body {
   letter-spacing: 0.0625em;
 }
 
-.App {
+.App,
+.Questions {
   padding: 0 6em;
 }
 
 .App-header {
-  padding: 6em 0;
+  padding: 5em 0;
   display: flex;
 }
 .App-logo {
@@ -23,12 +24,18 @@ body {
 }
 .App-nav {
   margin-left: auto;
-  color: #d4d4d4;
+  color: #fff;
+}
+.Link:hover {
+    text-decoration: none;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 3px;
+
 }
 .Link:hover,
 .Link:active,
 .Link:focus {
-  color: #d4d4d4;
+  color: #fff;
 }
 
 .App-title {
@@ -39,7 +46,7 @@ body {
 
 .App-intro {
   max-width: 45em;
-  color: #d4d4d4;
+  color: #fff;
   font-size: 1em;
   padding: 0 0 3em 0;
   font-weight: 300;
@@ -145,4 +152,72 @@ body {
   /* color: black; */
   /* box-shadow: 0.4em 0.4em 1.5em #4A90E2; */
   cursor: not-allowed;
+}
+
+
+
+
+/* ---- Questions page styles */
+
+.Questions {
+    height: 100px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.questions-container {
+    /* position: absolute;
+    top: 50%;
+    transform: translateY(-50%); */
+}
+
+.button-container {
+    /* display: block;
+    margin: 2em auto; */
+    text-align: center;
+}
+
+.question {
+    min-height: 100px;
+    font-size: 2.25em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.answer {
+    margin: 2em ;
+    background-color: #fff;
+    color: #000;
+    font-weight: 600;
+    width: 200px;
+    letter-spacing: 0.5px;
+    padding: 1em 3em;
+    border: none;
+    margin-top: 3em !important;
+    transition: box-shadow 0.2s ease-out;
+}
+.yes:hover {
+  transition: box-shadow 0.2s ease-in;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0.4em 0.4em 1.5em #4A90E2;
+}
+.yes {
+    box-shadow: 0.2em 0.2em 1.5em #4A90E2;
+}
+.no:hover {
+  transition: box-shadow 0.2s ease-in;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0.4em 0.4em 1.5em #DD8585;
+}
+
+.no {
+    box-shadow: 0.2em 0.2em 1.5em #DD8585;
+
 }
