@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import fire from './fire';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 var usersinroom;
 
@@ -26,19 +26,6 @@ class Start extends Component {
         fire.database().ref("users/" + this.inputEl.value).set(
             {
                 username: this.inputEl.value,
-                q1: '',
-                q2: '',
-                q3: '',
-                q4: '',
-                q5: '',
-                q6: '',
-                q7: '',
-                q8: '',
-                q9: '',
-                q10: '',
-                q11: '',
-                q12: '',
-                
             });
         
         this.username = this.inputEl.value;
@@ -88,18 +75,19 @@ class Start extends Component {
 
                 <h1 className="num-participants"> X {usersinroom} </h1>
 
-                <form className="start-form" onSubmit={this.submitForm.bind(this)}>
-                    <input className="start-name" type="text" placeholder="Your display name" ref={ el => this.inputEl = el }/>
-                    <input className ="start-button" type="submit" value="Start"/>
-                </form>
 
-                {fireRedirect && (
-                  <Redirect to={from || '/questions'}/>
-                )}
+                    <form className="start-form" onSubmit={this.submitForm.bind(this)}>
+                        <input className="start-name" type="text" placeholder="Your display name" ref={ el => this.inputEl = el }/>
+                        <input className ="start-button" type="submit" value="Start"/>
+                    </form>
+
+                    {fireRedirect && (
+                      <Redirect to={from || '/questions'}/>
+                    )}
+                </div>
             </div>
-        </div>
 
-    );
+        );
     }
 }
 

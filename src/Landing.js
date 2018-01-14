@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
-import Start from './Start';
+import { Link } from 'react-router-dom';
 
 class Landing extends Component {
     render() {
