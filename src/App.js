@@ -26,7 +26,6 @@ class App extends Component {
           <Route exact path='/questions' component={Questions}/>
           <Route exact path='/overview' component={End}/>
           <Route exact path='/compare' component={Compare}/>
-          
         </Switch>
 
       </div>
