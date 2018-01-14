@@ -14,6 +14,7 @@ class Landing extends Component {
             
             
             <Link to='/start' className="App-button">Start my walk</Link>
+            
         </div>
         );
     }
