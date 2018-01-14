@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import fire from './fire';
 import { Redirect } from 'react-router-dom';
-import AnimatedNumber from 'react-animated-number';
 
-var usersinroom;
+var usersinroom = 0;
 
 class Start extends Component {
    constructor(props) {
@@ -12,13 +11,6 @@ class Start extends Component {
             users: [],
             fireRedirect: false
         }; // <- set up react state
-    }
-
-    componentWillMount(){
-        /* Create reference to users in Firebase Database */
-        var usersRef = fire.database().ref("users");
-        var username = "";
-
     }
 
     submitForm = (e) => {
@@ -44,11 +36,11 @@ class Start extends Component {
       var listRef = fire.database().ref("usersinroom");
       var presenceRef = fire.database().ref("usersinroom/" + localStorage.getItem("username"));
       if (localStorage.getItem("username") !== "undefined") {
-          var currentUser = presenceRef.push(localStorage.getItem("username"));
+          /* This declaration below does nothing */
+          /* var currentUser = presenceRef.push(localStorage.getItem("username")); */
       }
 
       presenceRef.on("value", function(snap) {
-          console.log(snap.val()); /* This returns null */ 
           presenceRef.onDisconnect().remove();
       });
       listRef.on("value", function(snap) {
@@ -77,19 +69,6 @@ class Start extends Component {
                 <h3 className="card-title">Waiting for others</h3>
                 <p className="card-intro">Need 10 participants</p>
 
-
-                <AnimatedNumber component="text" value={usersinroom}
-                    style={{
-                    transition: '0.8s ease-out',
-                    fontSize: 48,
-                    transitionProperty:
-                        'background-color, color, opacity'
-                    }}
-                    frameStyle={perc => (
-                        perc === 100 ? {} : {backgroundColor: '#ffeb3b'}
-                    )}
-                    duration={300}
-                    />
                 <h1 className="num-participants"> {usersinroom} </h1>
 
 
