@@ -14,13 +14,6 @@ class Start extends Component {
         }; // <- set up react state
     }
 
-    componentWillMount(){
-        /* Create reference to users in Firebase Database */
-        var usersRef = fire.database().ref("users");
-        var username = "";
-
-    }
-
     submitForm = (e) => {
        e.preventDefault(); // <- prevent form submit from reloading the page
         /* Send the message to Firebase */
@@ -44,7 +37,8 @@ class Start extends Component {
       var listRef = fire.database().ref("usersinroom");
       var presenceRef = fire.database().ref("usersinroom/" + localStorage.getItem("username"));
       if (localStorage.getItem("username") !== "undefined") {
-          var currentUser = presenceRef.push(localStorage.getItem("username"));
+          /* This declaration below does nothing */
+          /* var currentUser = presenceRef.push(localStorage.getItem("username")); */
       }
 
       presenceRef.on("value", function(snap) {
