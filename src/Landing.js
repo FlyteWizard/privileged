@@ -36,14 +36,14 @@ class Landing extends Component {
                     ...defaultStyle,
                     ...transitionStyles[state]
                 }}>
-                    <h1 className="App-title">Privilege Walk</h1>
+                    <h1 className="App-title">Privileged.tech</h1>
                     <p className="App-intro">
                       Privileged.tech is a web application that enables groups of individuals to conduct a <a className="pinklink" href="https://edge.psu.edu/workshops/mc/power/privilegewalk.shtml">‘privilege walk’</a> from their web-connected devices in real time. The questions in the walk aim to expose the privileges present in the tech community, and provoke participants to reflect on their position in the walk.
                     </p>
 
 
                     <Link to='/start' className="App-button">Start my walk</Link>
-                    
+
                 </div>)}
             </Transition>
 
