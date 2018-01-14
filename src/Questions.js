@@ -101,7 +101,7 @@ class Questions extends Component {
 
 
                 {fireRedirect && (
-                    <Redirect to={from || '/end'}/>
+                    <Redirect to={from || '/overview'}/>
                 )}
 
 
