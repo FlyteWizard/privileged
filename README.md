@@ -1,4 +1,4 @@
-# <img src="./product/p-colour.png" width="50"> rivileged
+# <img src="./product/p-colour.png" width="50"> Privileged
 
 This app was made during nwHacks 2018.
 
