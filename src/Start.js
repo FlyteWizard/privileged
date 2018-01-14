@@ -5,6 +5,8 @@ import { Transition } from 'react-transition-group';
 
 var usersinroom = 0;
 
+var placeholdercounter = 0;
+
 const duration = 500;
 
 const defaultStyle = {
@@ -31,7 +33,7 @@ class Start extends Component {
 
     componentWillMount(){
         /* Create reference to users in Firebase Database */
-        fire.database().ref("usersinroom/placeholder").set({donotdelete: "donotdelete"});
+        fire.database().ref("usersinroom/placeholder" + placeholdercounter).set({donotdelete: "donotdelete"});
 
     }
 
@@ -68,7 +70,7 @@ class Start extends Component {
       var listRef = fire.database().ref("usersinroom");
       var presenceRef = fire.database().ref("usersinroom/" + localStorage.getItem("username"));
       if (localStorage.getItem("username") !== "undefined") {
-          fire.database().ref("usersinroom/placeholder").remove();
+          fire.database().ref("usersinroom/placeholder" + placeholdercounter).remove();
       }
 
       presenceRef.on("value", function(snap) {
