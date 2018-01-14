@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import fire from './fire';
+import { Redirect } from 'react-router-dom';
 
 var counter = 0;
 var yesCounter = 0;
@@ -19,7 +20,7 @@ const questionList = [
     '12. If you live by yourself or with a S.O., take one step forward.',
     '13. If you have internet access at home, take one step forward.',
     '14. If you are a cis-gendered male, take one step forward.',
-    '15. If you haven&apost been mistaken for a non-developer, take one step forward.'
+    "15. If you haven't been mistaken for a non-developer, take one step forward."
 ];
 
 class Questions extends Component {
@@ -28,7 +29,7 @@ class Questions extends Component {
         this.handleClick = this.handleClick.bind(this);
         this.state = {
             question: '1. If you have a personal computer/phone, take one step forward.',
-            questionNum: ''
+            fireRedirect: false
         }
     }
     
@@ -37,18 +38,24 @@ class Questions extends Component {
         counter++;
         if (answer === "yes") {
             yesCounter++;
-        }
-        
+        }        
         
         this.setState({ question: questionList[counter] });
         fire.database().ref("users/" + localStorage.getItem("username") + "/q" + counter).set(answer);
+        
+        if (counter == 15) {
+            this.setState({ fireRedirect: true })
+        }
+
         fire.database().ref("users/" + localStorage.getItem("username") + "/sum").set(yesCounter);
     };
     
     
     render() {
         
+        const { from } = this.props.location.state || '/'
         const { question } = this.state;
+        const { fireRedirect } = this.state
         
         return (
             
@@ -59,7 +66,15 @@ class Questions extends Component {
                 <button onClick={() => this.handleClick("yes")}>yes</button>
                 <button onClick={() => this.handleClick("no")}>no</button>
                 </div>
+                
+                
+                {fireRedirect && (
+                    <Redirect to={from || '/end'}/>
+                )}
             </div>
+            
+            
+            
         
         
         );
