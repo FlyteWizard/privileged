@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 class Landing extends Component {
     render() {
+        localStorage.setItem("username", this.username);
         return (
         <div>
 

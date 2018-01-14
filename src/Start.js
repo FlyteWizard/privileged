@@ -42,7 +42,10 @@ class Start extends Component {
       // Add ourselves to presence list when online.
       var listRef = fire.database().ref("usersinroom");
       var presenceRef = fire.database().ref("usersinroom/" + localStorage.getItem("username"));
-      var currentUser = presenceRef.push(localStorage.getItem("username"));
+      if (localStorage.getItem("username") != "undefined") {
+          var currentUser = presenceRef.push(localStorage.getItem("username"));
+      }
+      
       presenceRef.on("value", function(snap) {
           console.log(snap.val());
           presenceRef.onDisconnect().remove();
