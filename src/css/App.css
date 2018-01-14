@@ -285,6 +285,11 @@ body {
     font-weight: 500;
     color:#E77171;
 }
+.Recap a:hover, .pinklink:hover {
+    font-weight: 500;
+    color:#EAADAC;
+}
+
 .Recap .card-title {
     color: #fff !important;
 }
