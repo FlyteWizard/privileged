@@ -3,6 +3,7 @@ import privileged from './privileged.png';
 import './App.css';
 import { Switch, Route, Link } from 'react-router-dom';
 import Start from './Start';
+import Landing from './Landing';
 
 
 class App extends Component {
@@ -12,19 +13,14 @@ class App extends Component {
         <header className="App-header">
           <img src={privileged} className="App-logo" alt="logo" />
           <p className="App-nav">About</p>
+          
+          <Switch>
+                <Route exact path='/' component={Landing}/>
+                <Route exact path='/start' component={Start}/>
+           </Switch>
+          
+          
         </header>
-        <h1 className="App-title">Privilege Walk</h1>
-        <p className="App-intro">
-          This activity forces participants to confront the ways in which society privileges some individuals over others.
-        </p>
-        
-        
-        <Switch>
-            <Route exact path ='/start' component={Start}/>
-        </Switch>
-        
-        <Link to='/start'>Start my walk</Link>
-        // <a className="App-button" href="url">Start my walk</a>
       </div>
     );
   }
