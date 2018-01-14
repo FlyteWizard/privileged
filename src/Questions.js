@@ -7,20 +7,17 @@ var yesCounter = 0;
 
 const questionList = [
     'Do you have a personal computer and/or phone?',
-    '2. If you were ever discouraged from academics or jobs because of race, class, ethnicity, gender or sexual orientation, take one step back.',
-    '3. If you were ever offered a good job because of your association with a friend or family member, take one step forward.',
-    '4. If your parents pay for your education college, take one step forward.',
-    '5. If you were ever ashamed or embarrassed of your clothes, computer, mobile phone, etc. take one step back.',
-    '6. If you ever tried to change your appearance, mannerisms, or behavior to avoid being judged or ridiculed, or to gain more credibility, take one step back.',
-    '7. If you were encouraged by your parents to attend college, take one step forward.',
-    '8. If you felt or were told that you should work twice as hard as others to succeed in school or career because of your background, take a step back.',
-    '9. If you have a disability, take one step backward.',
-    '10. If you were paid less, treated less fairly because of race, ethnicity, gender or sexual orientation, take one step back.',
-    '11. If your parents attended college take one step forward.',
-    '12. If you live by yourself or with a S.O., take one step forward.',
-    '13. If you have internet access at home, take one step forward.',
-    '14. If you are a cis-gendered male, take one step forward.',
-    "15. If you haven't been mistaken for a non-developer, take one step forward."
+    'Were you ever discouraged from academics or jobs because of race, class, ethnicity, gender, or sexual orientation?',
+    'Were you ever offered a good job because of your association with a friend or family member?',
+    'Did/Do your parent(s) pay for your post-secondary education?',
+    'Were you ever ashamed or embarrassed of your clothes, computer, mobile phone, etc.?',
+    'Have you ever tried to change your appearance, mannerisms, or behavior to avoid being judged or ridiculed, or to gain more credibility?',
+    'Have you ever felt or were told that you should work twice as hard as others to succeed in school or career because of your background?',
+    'Do you have a disability?',
+    'Did your parent(s) attended college?',
+    'Do you have internet access at home?',
+    'Are you a cis-gendered male?',
+    "Have you been mistaken for a non-developer?"
 ];
 
 class Questions extends Component {
@@ -74,8 +71,8 @@ class Questions extends Component {
                 {fireRedirect && (
                     <Redirect to={from || '/end'}/>
                 )}
-                
-                
+
+
             </div>
 
 
