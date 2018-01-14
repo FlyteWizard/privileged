@@ -238,6 +238,12 @@ body {
 }
 
 
+.Compare .App-intro {
+    padding: 0 !important;
+}
+
+.Compare .overview-text { margin-bottom: 2em;}
+
 /* ---Overview page styles */
 .overview-title {
   font-size: 2.1em;
@@ -261,6 +267,28 @@ body {
 .overview-intro {
     display: inline-block;
 }
+
+/* --Recap styles */
+.recap-text, .Recap ul, .Recap li{
+    max-width: 45em;
+    color: #fff;
+    font-size: 1em;
+    padding: 0 0 1em 0;
+    font-weight: 300;
+    line-height: 1.8;
+    letter-spacing: normal !important;
+    list-style-position: inside;
+    list-style-type: square;
+}
+
+.Recap a {
+    font-weight: 500;
+    color:#E77171;
+}
+.Recap .card-title {
+    color: #fff !important;
+}
+
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) and (max-width: 767px) {

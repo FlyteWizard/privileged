@@ -61,7 +61,7 @@ class End extends Component {
                           This activity forces participants to confront the ways in which society privileges some individuals over others.
                         </p>
                     </div>
-                    <div class="overview-inline">
+                    <div className="overview-inline">
                         <Link to='/compare' className="App-button compare-button">Compare</Link>
                     </div>
                 </div>

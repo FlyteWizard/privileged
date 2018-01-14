@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import fire from './fire';
 import { Line } from 'react-chartjs-2';
+import { Link } from 'react-router-dom';
 
 var counter = 1;
 
@@ -71,11 +72,17 @@ class Compare extends Component {
 
         return (
             <div className="Compare">
-                <h1 className="overview-title">Compare</h1>
-                <p className="App-intro">
-                    Lorem Ipsum swag magda le toures dope hate.
-                </p>
-
+                <div className="overview-text">
+                    <div className="overview-inline">
+                        <h1 className="overview-title">Compare</h1>
+                        <p className="App-intro">
+                            Where you stand compared to other participants
+                        </p>
+                    </div>
+                    <div className ="overview-inline">
+                        <Link to='/recap' className="App-button compare-button">Recap</Link>
+                    </div>
+                </div>
                 <Line data={data} />
             </div>
         );
