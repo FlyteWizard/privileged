@@ -25,22 +25,24 @@ const data = {
 
 // update chart when data is added to the database
 fire.database().ref("users").on("value", function(snapshot) {
-    console.log("setting chart data");
-    data.datasets[0].data = [];
-    snapshot.forEach(function(childSnapshot) {
-        var mysum = childSnapshot.val().sum;
-        var username = childSnapshot.val().username;
-        if (userCounter < snapshot.numChildren()) {
-            if (username === localStorage.getItem("username")) {
-                data.labels.push("you");
-                console.log("you!");
-            } else  {
-                data.labels.push(userCounter);
+    // only set chart data after the user has set their username, so that we can print "you" in the chart
+    if (localStorage.getItem("username") !== "undefined") {
+        data.datasets[0].data = []; // clear any existing data
+        snapshot.forEach(function(childSnapshot) {
+            var mysum = childSnapshot.val().sum;
+            var username = childSnapshot.val().username;
+            if (userCounter < snapshot.numChildren()) {
+                if (username === localStorage.getItem("username")) {
+                    data.labels.push("you");
+                    console.log("you!");
+                } else {
+                    data.labels.push(userCounter);
+                }
             }
-        }
-        userCounter++;
-        data.datasets[0].data.push(mysum); 
-    });
+            userCounter++;
+            data.datasets[0].data.push(mysum); 
+        });
+    }
 });
 
 // the class of the chart so that we can update its state which causes it to update in the render
