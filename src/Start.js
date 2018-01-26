@@ -8,7 +8,7 @@ var usersinroom = 0;
 var placeholdercounter = 0;
 
 fire.database().ref("usersinroom").on("value", function(snap) {
-    console.log("Online:" + snap.numChildren());
+    //console.log("Online:" + snap.numChildren());
     placeholdercounter = snap.numChildren();
 });
 

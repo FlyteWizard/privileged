@@ -5,9 +5,10 @@ import { Transition } from 'react-transition-group';
 
 for (var i = 0; i < 12; i++) {
     var str = "q" + i;
-    console.log(str);
+    //console.log(str);
     fire.database().ref("questionsums/" + str + "/ignore").set("ignore");
 }
+
 
 
 const duration = 500;

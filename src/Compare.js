@@ -1,75 +1,74 @@
 import React, { Component } from 'react';
 import fire from './fire';
 import { Line } from 'react-chartjs-2';
-import { Link } from 'react-router-dom';
+import { Link, BrowserRouter } from 'react-router-dom';
 
-var counter = 1;
+var userCounter = 0;
 
 const data = {
-
-  labels: [],
-  datasets: [
-    {
-      label: 'View data',
-      backgroundColor: "#222",
-      borderColor: '#555',
-      pointBackgroundColor: [
-        "#82A19A",
-        "#B5CDBF ",
-        "#E77171 ",
-        "#F39998 ",
-        "#EAADAC ",
-        "#C8D4A4 ",
-        "#F6ECB7",
-        "#82A19A",
-        "#B5CDBF ",
-        "#E77171 ",
-        "#F39998 ",
-        "#EAADAC ",
-        "#C8D4A4 ",
-        "#F6ECB7" ],
-      pointRadius: 10,
-      hoverBackgroundColor: '',
-      hoverBorderColor: '#fff',
-      data: [],
-      hover: {mode: null},
-      borderWidth: 1,
-    }
-  ]
-
+    labels: [],
+    datasets: [
+        {
+          label: 'View data',
+          backgroundColor: "#222",
+          borderColor: '#555',
+          pointBackgroundColor: "#82A19A",
+          pointRadius: 10,
+          hoverBackgroundColor: '',
+          hoverBorderColor: '#fff',
+          data: [],
+          hover: {mode: null},
+          borderWidth: 1,
+        }
+    ]
 };
 
-// Loop through users in order with the forEach() method. The callback
-// provided to forEach() will be called synchronously with a DataSnapshot
-var indexofmybar = -1;
-
-var query = fire.database().ref("users");
-query.once("value")
-  .then(function(snapshot) {
+// update chart when data is added to the database
+fire.database().ref("users").on("value", function(snapshot) {
+    console.log("setting chart data");
+    data.datasets[0].data = [];
     snapshot.forEach(function(childSnapshot) {
-
-      var mysum = childSnapshot.val().sum;
+        var mysum = childSnapshot.val().sum;
         var username = childSnapshot.val().username;
-        console.log(username + mysum);
-
-        if (username === localStorage.getItem("username")) {
-            data.labels.push("you");
-        } else {
-            data.labels.push(counter);
-            counter++;
+        if (userCounter < snapshot.numChildren()) {
+            if (username === localStorage.getItem("username")) {
+                data.labels.push("you");
+                console.log("you!");
+            } else  {
+                data.labels.push(userCounter);
+            }
         }
-
-        data.datasets[0].data.push(mysum);
-  });
+        userCounter++;
+        data.datasets[0].data.push(mysum); 
+    });
 });
 
-console.log("index of mine: " + indexofmybar);
-
+// the class of the chart so that we can update its state which causes it to update in the render
+class Chart extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {date: new Date()};
+    }
+    
+    componentDidMount() {
+        let currentComponent = this;
+        fire.database().ref("users").on("value", function(snapshot) {
+            console.log("componentdidmount");
+            currentComponent.setState({
+              date: new Date()
+            });
+        });
+    }
+    
+    render() {
+        return (
+            <Line data={data} />
+        );
+    }
+}
 
 class Compare extends Component {
-
-    render() {
-
+    render() {    
         return (
             <div className="Compare">
                 <div className="overview-text">
@@ -85,12 +84,10 @@ class Compare extends Component {
                         <Link to='/recap' className="App-button compare-button">Recap</Link>
                     </div>
                 </div>
-                <Line data={data} />
+                <Chart />
             </div>
         );
-
     }
-
 }
 
 export default Compare;
