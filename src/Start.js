@@ -27,6 +27,39 @@ const transitionStyles = {
   entered: { opacity: 1 },
 };
 
+// Add ourselves to presence list when online.
+      var listRef = fire.database().ref("usersinroom");
+      var userRef = listRef.push();
+      var presenceRef = fire.database().ref(".info/connected");
+
+        presenceRef.on("value", function(snap) {
+          if (snap.val()) {
+            // Remove ourselves when we disconnect.
+            userRef.onDisconnect().remove();
+
+            userRef.set(true);
+          }
+        });
+
+        // Number of online users is the number of objects in the presence list.
+    listRef.on("value", function(snap) {
+      console.log("# of online users = " + snap.numChildren());
+        usersinroom = snap.numChildren();
+    });
+      
+//      if (localStorage.getItem("username") !== "undefined") {
+//          fire.database().ref("usersinroom/placeholder" + placeholdercounter).remove();
+//      }
+      
+//      listRef.on("value", function(snap) {
+//          if (snap.val()) {
+//              console.log("Online:" + snap.numChildren());
+//              usersinroom = snap.numChildren();
+//              userRef.onDisconnect().remove();
+//              userRef.set(true);
+//          }
+//      });
+
 class Start extends Component {
    constructor(props) {
         super(props);
@@ -38,8 +71,8 @@ class Start extends Component {
 
     componentWillMount(){
         /* Create reference to users in Firebase Database */
-        fire.database().ref("usersinroom/placeholder" + placeholdercounter).set({donotdelete: "donotdelete"});
-        placeholdercounter++;
+        //fire.database().ref("usersinroom/placeholder" + placeholdercounter).set({donotdelete: "donotdelete"});
+        //placeholdercounter++;
 
     }
 
@@ -66,27 +99,12 @@ class Start extends Component {
         console.log(this.username);
         localStorage.setItem("username", this.username);
         console.log(e);
-
         this.setState({ fireRedirect: true })
     }
 
   render() {
 
-      // Add ourselves to presence list when online.
-      var listRef = fire.database().ref("usersinroom");
       
-      var presenceRef = fire.database().ref("usersinroom/" + localStorage.getItem("username"));
-      if (localStorage.getItem("username") !== "undefined") {
-          fire.database().ref("usersinroom/placeholder" + placeholdercounter).remove();
-      }
-
-      presenceRef.on("value", function(snap) {
-          presenceRef.onDisconnect().remove();
-      });
-      listRef.on("value", function(snap) {
-          console.log("Online:" + snap.numChildren());
-          usersinroom = snap.numChildren();
-      });
 
       /*
       fire.database().ref("usersinroom").on('value', function(snapshot) {
@@ -120,7 +138,7 @@ class Start extends Component {
                         <form className="start-form" onSubmit={this.submitForm.bind(this)}>
                             <input className="start-name" type="text" placeholder="Your display name*" ref={ el => this.inputEl = el } required/>
 
-                            <input className ="start-button" type="submit" value="Start"  />
+                            <input className ="start-button" type="submit" value="Start" />
                         </form>
 
                         {fireRedirect && (
