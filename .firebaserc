@@ -1,5 +1,5 @@
 {
   "projects": {
-    "default": "privileged-f5911"
+    "development": "dev-privileged"
   }
 }

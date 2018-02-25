@@ -5,7 +5,7 @@ import { Transition } from 'react-transition-group';
 
 var usersinroom = 0;
 
-var placeholdercounter = 0;
+var placeholdercounter;
 
 fire.database().ref("usersinroom").on("value", function(snap) {
     //console.log("Online:" + snap.numChildren());
@@ -46,11 +46,11 @@ const transitionStyles = {
       console.log("# of online users = " + snap.numChildren());
         usersinroom = snap.numChildren();
     });
-      
+
 //      if (localStorage.getItem("username") !== "undefined") {
 //          fire.database().ref("usersinroom/placeholder" + placeholdercounter).remove();
 //      }
-      
+
 //      listRef.on("value", function(snap) {
 //          if (snap.val()) {
 //              console.log("Online:" + snap.numChildren());
@@ -104,7 +104,7 @@ class Start extends Component {
 
   render() {
 
-      
+
 
       /*
       fire.database().ref("usersinroom").on('value', function(snapshot) {

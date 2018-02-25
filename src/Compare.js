@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import fire from './fire';
 import { Line } from 'react-chartjs-2';
-import { Link, BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 var userCounter = 0;
 
@@ -40,7 +40,7 @@ fire.database().ref("users").on("value", function(snapshot) {
                 }
             }
             userCounter++;
-            data.datasets[0].data.push(mysum); 
+            data.datasets[0].data.push(mysum);
         });
     }
 });
@@ -51,7 +51,7 @@ class Chart extends React.Component {
         super(props);
         this.state = {date: new Date()};
     }
-    
+
     componentDidMount() {
         let currentComponent = this;
         fire.database().ref("users").on("value", function(snapshot) {
@@ -61,7 +61,7 @@ class Chart extends React.Component {
             });
         });
     }
-    
+
     render() {
         return (
             <Line data={data} />
@@ -70,7 +70,7 @@ class Chart extends React.Component {
 }
 
 class Compare extends Component {
-    render() {    
+    render() {
         return (
             <div className="Compare">
                 <div className="overview-text">
@@ -78,7 +78,7 @@ class Compare extends Component {
                         <h1 className="overview-title">Compare</h1>
                         <p className="App-intro">
                             Where do you stand?
-                            The higher on the screen you are, the more privileges you have been afforded in this specific context. 
+                            The higher on the screen you are, the more privileges you have been afforded in this specific context.
                             Take some time to consider those ahead of you, as well as those behind you.
                         </p>
                     </div>
