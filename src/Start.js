@@ -5,12 +5,12 @@ import { Transition } from 'react-transition-group';
 
 var usersinroom = 0;
 
-var placeholdercounter;
-
 /*
 ##############################################################
 DON'T DELETE THIS PART, MAY USE IN FUTURE ROOM IMPLEMENTATIONS
 ##############################################################
+
+var placeholdercounter;
 
 var room = "mac";
 localStorage.setItem("room", room);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import fire from './fire';
+//import fire from './fire';
 import { Transition } from 'react-transition-group';
 
 if (!localStorage.getItem("username")) {
