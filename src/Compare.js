@@ -24,13 +24,14 @@ const data = {
 };
 
 // update chart when data is added to the database
-fire.database().ref("users").on("value", function(snapshot) {
+fire.database().ref(localStorage.getItem("room") + "/users").on("value", function(snapshot) {
     // only set chart data after the user has set their username, so that we can print "you" in the chart
     if (localStorage.getItem("username") !== "undefined") {
         data.datasets[0].data = []; // clear any existing data
         snapshot.forEach(function(childSnapshot) {
             var mysum = childSnapshot.val().sum;
             var username = childSnapshot.val().username;
+            console.log(username);
             if (userCounter < snapshot.numChildren()) {
                 if (username === localStorage.getItem("username")) {
                     data.labels.push("you");
@@ -54,7 +55,7 @@ class Chart extends React.Component {
 
     componentDidMount() {
         let currentComponent = this;
-        fire.database().ref("users").on("value", function(snapshot) {
+        fire.database().ref(localStorage.getItem("room") + "/users").on("value", function(snapshot) {
             console.log("componentdidmount");
             currentComponent.setState({
               date: new Date()

@@ -7,7 +7,10 @@ var usersinroom = 0;
 
 var placeholdercounter;
 
-fire.database().ref("usersinroom").on("value", function(snap) {
+var room = "mac";
+localStorage.setItem("room", room);
+
+fire.database().ref("rooms/" + room + "/usersinroom").on("value", function(snap) {
     //console.log("Online:" + snap.numChildren());
     placeholdercounter = snap.numChildren();
 });
@@ -28,7 +31,7 @@ const transitionStyles = {
 };
 
 // Add ourselves to presence list when online.
-      var listRef = fire.database().ref("usersinroom");
+      var listRef = fire.database().ref(room + "/usersinroom");
       var userRef = listRef.push();
       var presenceRef = fire.database().ref(".info/connected");
 
@@ -89,7 +92,7 @@ class Start extends Component {
     submitForm = (e) => {
        e.preventDefault(); // <- prevent form submit from reloading the page
         /* Send the message to Firebase */
-        fire.database().ref("users/" + this.inputEl.value).set(
+        fire.database().ref(localStorage.getItem("room") + "/users/" + this.inputEl.value).set(
             {
                 username: this.inputEl.value,
             });

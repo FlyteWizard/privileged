@@ -6,7 +6,7 @@ import { Transition } from 'react-transition-group';
 for (var i = 0; i < 12; i++) {
     var str = "q" + i;
     //console.log(str);
-    fire.database().ref("questionsums/" + str + "/ignore").set("ignore");
+    fire.database().ref(localStorage.getItem("room") + "/questionsums/" + str + "/ignore").set("ignore");
 }
 
 
