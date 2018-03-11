@@ -5,12 +5,22 @@ import { Transition } from 'react-transition-group';
 
 var usersinroom = 0;
 
+/*
+##############################################################
+DON'T DELETE THIS PART, MAY USE IN FUTURE ROOM IMPLEMENTATIONS
+##############################################################
+
 var placeholdercounter;
 
-fire.database().ref("usersinroom").on("value", function(snap) {
+var room = "mac";
+localStorage.setItem("room", room);
+
+fire.database().ref("rooms/" + room + "/usersinroom").on("value", function(snap) {
     //console.log("Online:" + snap.numChildren());
     placeholdercounter = snap.numChildren();
 });
+
+*/
 
 const duration = 500;
 
@@ -27,8 +37,10 @@ const transitionStyles = {
   entered: { opacity: 1 },
 };
 
+/*
+
 // Add ourselves to presence list when online.
-      var listRef = fire.database().ref("usersinroom");
+      var listRef = fire.database().ref(room + "/usersinroom");
       var userRef = listRef.push();
       var presenceRef = fire.database().ref(".info/connected");
 
@@ -46,6 +58,8 @@ const transitionStyles = {
       console.log("# of online users = " + snap.numChildren());
         usersinroom = snap.numChildren();
     });
+
+*/
 
 //      if (localStorage.getItem("username") !== "undefined") {
 //          fire.database().ref("usersinroom/placeholder" + placeholdercounter).remove();
@@ -87,9 +101,9 @@ class Start extends Component {
     }
 
     submitForm = (e) => {
-       e.preventDefault(); // <- prevent form submit from reloading the page
+        e.preventDefault(); // <- prevent form submit from reloading the page
         /* Send the message to Firebase */
-        fire.database().ref("users/" + this.inputEl.value).set(
+        fire.database().ref(this.inputRoom.value + "/users/" + this.inputEl.value).set(
             {
                 username: this.inputEl.value,
             });
@@ -98,6 +112,18 @@ class Start extends Component {
         this.inputEl.value = ''; // <- clear the input
         console.log(this.username);
         localStorage.setItem("username", this.username);
+
+        this.room = this.inputRoom.value;
+        this.inputRoom.value = ''; // <- clear the input
+        console.log(this.room);
+        localStorage.setItem("room", this.room);
+
+        for (var i = 0; i < 12; i++) {
+            var str = "q" + i;
+            //console.log(str);
+            fire.database().ref(localStorage.getItem("room") + "/questionsums/" + str + "/ignore").set("ignore");
+        }
+
         console.log(e);
         this.setState({ fireRedirect: true })
     }
@@ -136,6 +162,7 @@ class Start extends Component {
                     <h1 className="num-participants"> {usersinroom} </h1>
 
                         <form className="start-form" onSubmit={this.submitForm.bind(this)}>
+                            <input className="start-name" type="text" placeholder="Your room*" ref={ room => this.inputRoom = room } required/>
                             <input className="start-name" type="text" placeholder="Your display name*" ref={ el => this.inputEl = el } required/>
 
                             <input className ="start-button" type="submit" value="Start" />
