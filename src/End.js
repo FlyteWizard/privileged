@@ -52,7 +52,7 @@ const data = {
 };
 
 for (var i = 0; i < 12; i++) {
-    var currRef = baseRef.ref("questionsums/q" + i);
+    var currRef = baseRef.ref(localStorage.getItem("room") + "/questionsums/q" + i);
     currRef.on("value", function(snapshot) {
         var x = snapshot.numChildren() - 1;
         console.log(x);
@@ -66,13 +66,13 @@ class Chart extends React.Component {
         super(props);
         this.state = {date: new Date()};
     }
-    
+
     componentDidMount() {
         let currentComponent = this;
-        fire.database().ref("questionsums").on("value", function(snapshot) {
+        fire.database().ref(localStorage.getItem("room") + "/questionsums").on("value", function(snapshot) {
             data.datasets[0].data = []; // clear existing data
             for (var i = 0; i < 12; i++) {
-                var currRef = baseRef.ref("questionsums/q" + i);
+                var currRef = baseRef.ref(localStorage.getItem("room") + "/questionsums/q" + i);
                 currRef.on("value", function(snapshot) {
                     var x = snapshot.numChildren() - 1;
                     console.log(x);
@@ -85,7 +85,7 @@ class Chart extends React.Component {
             });
         });
     }
-    
+
     render() {
         return (
             <HorizontalBar data={data} />

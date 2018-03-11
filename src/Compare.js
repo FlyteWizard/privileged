@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import fire from './fire';
 import { Line } from 'react-chartjs-2';
-import { Link, BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 var userCounter = 0;
 
@@ -23,27 +23,7 @@ const data = {
     ]
 };
 
-// update chart when data is added to the database
-fire.database().ref("users").on("value", function(snapshot) {
-    // only set chart data after the user has set their username, so that we can print "you" in the chart
-    if (localStorage.getItem("username") !== "undefined") {
-        data.datasets[0].data = []; // clear any existing data
-        snapshot.forEach(function(childSnapshot) {
-            var mysum = childSnapshot.val().sum;
-            var username = childSnapshot.val().username;
-            if (userCounter < snapshot.numChildren()) {
-                if (username === localStorage.getItem("username")) {
-                    data.labels.push("you");
-                    console.log("you!");
-                } else {
-                    data.labels.push(userCounter);
-                }
-            }
-            userCounter++;
-            data.datasets[0].data.push(mysum); 
-        });
-    }
-});
+
 
 // the class of the chart so that we can update its state which causes it to update in the render
 class Chart extends React.Component {
@@ -51,17 +31,45 @@ class Chart extends React.Component {
         super(props);
         this.state = {date: new Date()};
     }
-    
+
+    componentWillMount() {
+        console.log("componentWillMount");
+        // update chart when data is added to the database
+        fire.database().ref(localStorage.getItem("room") + "/users").on("value", function(snapshot) {
+            // only set chart data after the user has set their username, so that we can print "you" in the chart
+            console.log("compareabouttotestusername");
+            if (localStorage.getItem("username") !== "undefined") {
+                console.log("comparejustran");
+                data.datasets[0].data = []; // clear any existing data
+                snapshot.forEach(function(childSnapshot) {
+                    var mysum = childSnapshot.val().sum;
+                    var username = childSnapshot.val().username;
+                    console.log(username);
+                    if (userCounter < snapshot.numChildren()) {
+                        if (username === localStorage.getItem("username")) {
+                            data.labels.push("you");
+                            console.log("you!");
+                        } else {
+                            data.labels.push(userCounter);
+                        }
+                    }
+                    userCounter++;
+                    data.datasets[0].data.push(mysum);
+                });
+            }
+        });
+    }
+
     componentDidMount() {
         let currentComponent = this;
-        fire.database().ref("users").on("value", function(snapshot) {
-            console.log("componentdidmount");
+        fire.database().ref(localStorage.getItem("room") + "/users").on("value", function(snapshot) {
+            console.log("componentdidmountoncompare");
             currentComponent.setState({
               date: new Date()
             });
         });
     }
-    
+
     render() {
         return (
             <Line data={data} />
@@ -70,7 +78,7 @@ class Chart extends React.Component {
 }
 
 class Compare extends Component {
-    render() {    
+    render() {
         return (
             <div className="Compare">
                 <div className="overview-text">
@@ -78,7 +86,7 @@ class Compare extends Component {
                         <h1 className="overview-title">Compare</h1>
                         <p className="App-intro">
                             Where do you stand?
-                            The higher on the screen you are, the more privileges you have been afforded in this specific context. 
+                            The higher on the screen you are, the more privileges you have been afforded in this specific context.
                             Take some time to consider those ahead of you, as well as those behind you.
                         </p>
                     </div>

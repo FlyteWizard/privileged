@@ -1,11 +1,11 @@
 import firebase from 'firebase'
 var config = {
-    apiKey: "AIzaSyDoa8k-1dOARJxpYWu8icvUlqd4MbSoO1s",
-    authDomain: "privileged-f5911.firebaseapp.com",
-    databaseURL: "https://privileged-f5911.firebaseio.com",
-    projectId: "privileged-f5911",
-    storageBucket: "privileged-f5911.appspot.com",
-    messagingSenderId: "934024953094"
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID
 };
 var fire = firebase.initializeApp(config);
 export default fire;

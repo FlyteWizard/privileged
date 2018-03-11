@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import fire from './fire';
+//import fire from './fire';
 import { Transition } from 'react-transition-group';
 
-for (var i = 0; i < 12; i++) {
-    var str = "q" + i;
-    //console.log(str);
-    fire.database().ref("questionsums/" + str + "/ignore").set("ignore");
+if (!localStorage.getItem("username")) {
+    localStorage.setItem("username", null);
+    console.log("setusernamenull");
 }
-
-
 
 const duration = 500;
 
@@ -29,7 +26,7 @@ const transitionStyles = {
 
 class Landing extends Component {
     render() {
-        localStorage.setItem("username", this.username);
+        //localStorage.setItem("username", this.username);
         return (
             <Transition appear={true} in={true} timeout={duration}>
                 {(state) => (

@@ -23,7 +23,7 @@ const questionList = [
 const questionType = [
     1,
     0,
-    1, 
+    1,
     1,
     0,
     0,
@@ -51,38 +51,38 @@ class Questions extends Component {
         // Ouput Count
         // if user doesn't finish quiz, the counter is never reset.
         console.log(count);
-        
-        if ( ((questionType[count] === 1) && (answer === "yes")) || 
+
+        if ( ((questionType[count] === 1) && (answer === "yes")) ||
                     ((questionType[count] === 0) && (answer === "no")) ) { // Then take a step forward
             steps++;
             // Increment the user sum
-            fire.database().ref("users/" + localStorage.getItem("username") + "/sum").set(steps);
+            fire.database().ref(localStorage.getItem("room") + "/users/" + localStorage.getItem("username") + "/sum").set(steps);
             // Add an entry so that we can keep track of
             // how many people are privileged based on the question
-            fire.database().ref("questionsums/q" + count).push(answer);
+            fire.database().ref(localStorage.getItem("room") + "/questionsums/q" + count).push(answer);
         }
-        
-        fire.database().ref("users/" + localStorage.getItem("username") + "/q" + count).set(answer);
+
+        fire.database().ref(localStorage.getItem("room") + "/users/" + localStorage.getItem("username") + "/q" + count).set(answer);
         // This sends out twice during the second round
-        fire.database().ref("questionsums/q" + count).on("value", function(snap) {
+        fire.database().ref(localStorage.getItem("room") + "/questionsums/q" + count).on("value", function(snap) {
             console.log("Sum of question" + count + ": " + snap.numChildren());
         });
-        
+
         count++;
         this.setState({ question: questionList[count] });
-        
+
         // When done - Restart
         if (count === questionList.length) {
             this.setState({ fireRedirect: true });
             count = 0;
-            fire.database().ref("users/" + localStorage.getItem("username") + "/sum").set(steps);
+            fire.database().ref(localStorage.getItem("room") + "/users/" + localStorage.getItem("username") + "/sum").set(steps);
             steps = 0;
         }
     };
 
 
     render() {
-        
+
 
         const { from } = this.props.location.state || '/';
         const { question } = this.state;
