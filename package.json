@@ -6,6 +6,7 @@
     "chart.js": "^2.7.1",
     "dotenv": "^5.0.0",
     "firebase": "^4.10.1",
+    "moment": "^2.21.0",
     "promise-polyfill": "7.1.0",
     "react": "^16.2.0",
     "react-animated-number": "^0.4.4",
